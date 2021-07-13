@@ -1,13 +1,27 @@
+body {
+    max-width: 650px;
+    margin: auto;
+}
+
 .border-underline {
     border-bottom: solid 2px yellow;
     padding-bottom: 10px;
 }
-ul{
+
+ul {
     list-style-type: none;
 }
-li{
-    width:30%;
-    border:black solid 1px;
-    padding:10px;
 
+li {
+    border-style: solid;
+    border-color: lightgray;
+    border-width: 1px 1px 2px 1px;
+    border-radius: 2px;
+    padding: 12px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+img {
+    width: 100%;
 }
