@@ -11,25 +11,44 @@
 
 <body>
     <!-- ページ先頭 -->
-<h2>ガチで東京の人しか解けない！　#東京の難読地名クイズ</h2>
+    <h1 class="quiz-title">ガチで東京の人しか解けない！　#東京の難読地名クイズ</h1>
+    <br>
 
     <!-- 1問目 -->
-    <div>
-        <h3><span class="border-underline">１.この地名はなんて読む？</span></h3>
-    </div>
+    <h2><span class="border-underline">１.この地名はなんて読む？</span></h2>
     <img src="./img/photo1.png">
-    <div>
-        <ul>
-            <li>たかなわ</li>
-            <li>こうわ</li>
-            <li>たかわ</li>
-        </ul>
-    </div>
+    <ul>
+        <li id="choice1-0" onclick="clickfunction(1,0,0)">たかなわ</li>
+        <li id="choice1-1" onclick="clickfunction(1,1,0)">こうわ</li>
+        <li id="choice1-2" onclick="clickfunction(1,2,0)">たかわ</li>
+    </ul>
+    <div id="answer-box-1"></div>
+    <br>
+
     <!-- ２問目 -->
+    <h2><span class="border-underline">２.この地名はなんて読む？</span></h2>
+    <img src="./img/photo2.png">
+    <ul>
+        <li id="choice2-0" onclick="clickfunction(2,0,2)">かめど</li>
+        <li id="choice2-1" onclick="clickfunction(2,1,2)">かめと</li>
+        <li id="choice2-2" onclick="clickfunction(2,2,2)">かめいど</li>
+    </ul>
+    <div id="answer-box-2"></div>
+    <br>
 
     <!-- ３問目 -->
+    <h2><span class="border-underline">３.この地名はなんて読む？</span></h2>
+    <img src="./img/photo3.png">
+    <ul>
+        <li id="choice3-0" onclick="clickfunction(3,0,0)">こうじまち</li>
+        <li id="choice3-1" onclick="clickfunction(3,1,0)">おかとまち</li>
+        <li id="choice3-2" onclick="clickfunction(3,2,0)">かゆまち</li>
+    </ul>
+    <div id="answer-box-3"></div>
+    <br>
 
     <!-- ４問目 -->
+    
 
     <!-- ５問目 -->
 
@@ -42,6 +61,9 @@
     <!-- 9問目 -->
 
     <!-- 10問目 -->
+
+    <!-- JS -->
+    <script src="kuizy.js"></script>
 </body>
 
 </html>
