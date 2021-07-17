@@ -12,6 +12,16 @@ body {
     padding-bottom: 10px;
 }
 
+.clickedchoice-red{
+    color:#fff;
+    background-color: #ff5128;
+}
+.correctchoice-blue{
+    color: #fff;
+    background-color: #287dff;
+
+}
+
 .quiz-result-title{
     font-size: 16px;
     line-height: 20px;
