@@ -2,7 +2,7 @@
 let quizNum;
 let optionNum;
 let correctNum;
-let correctNum_array = [0, 1, 2];
+let correctNum_array = [0, 1, 1];
 let correctText_array = [
     ['たかなわ', 'こうわ', 'たかわ'],
     ['かめど', 'かめいど', 'かめと'],
