@@ -1,8 +1,8 @@
 //クリックした時の挙動
 var clickfunction = function (questionNo, choicesNo, correct) {　//クリックすると3つの変数が更新される
-    let clickedchoice = document.getElementById('choice' + questionNo + '-' + choicesNo);　//クリックしたliを取得
-    let correctAnswer = document.getElementById('choice' + questionNo + '-' + correct); //正解のliを取得
-    let answerBox = document.getElementById('answer-box-' + questionNo);　//回答ボックスのdivを取得
+    let clickedchoice = document.getElementById(`choice${questionNo}-${choicesNo}`);　//クリックしたliを取得
+    let correctAnswer = document.getElementById(`choice${questionNo}-${correct}`); //正解のliを取得
+    let answerBox = document.getElementById(`answer-box-${questionNo}`);　//回答ボックスのdivを取得
     
     //回答ボックスに入れる要素を作成
     let result = document.createElement('h3');
@@ -16,7 +16,7 @@ var clickfunction = function (questionNo, choicesNo, correct) {　//クリック
         result.classList.add('quiz-result-title');
         resultParagraph.classList.add('quiz-result-paragraph');
         //正解を表す文面をpタグに追加
-        resultParagraph.innerHTML = '正解は「' + correctAnswer.innerText + '」です！';
+        resultParagraph.innerHTML = `正解は「${correctAnswer.innerText}」です！`;
         //divの子要素として追加することで、実際に表示する
         answerBox.appendChild(result);
         answerBox.appendChild(resultParagraph);
@@ -35,11 +35,10 @@ var clickfunction = function (questionNo, choicesNo, correct) {　//クリック
     }
 
     //クリックできなくする
-    var choicesLength = document.getElementById('choices-q' + questionNo).childElementCount; //該当設問における選択肢の個数を取得（基本3つ）
+    var choicesLength = document.getElementById(`choices-q${questionNo}`).childElementCount; //該当設問における選択肢の個数を取得（基本3つ）
     for (let i = 0; i < choicesLength; i++) {
-        document.getElementById('choice' + questionNo + '-' + i).classList.add('cannotclick');
+        document.getElementById(`choice${questionNo}-${i}`).classList.add('cannotclick');
     };
 
-    console.log('第' + questionNo + '問　この設問の選択肢は' + choicesLength + 'つあります　選択:' + choicesNo + '正解:' + correct);
-
+    console.log(`第${questionNo}問　この設問の選択肢は${choicesLength}つあります\n選択:${choicesNo} 正解:${correct}`);
 }
