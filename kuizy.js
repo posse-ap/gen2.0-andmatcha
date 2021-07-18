@@ -2,12 +2,20 @@
 let quizNum;
 let optionNum;
 let correctNum;
-let correctNum_array = [0, 1, 1];
+let correctNum_array = [0, 1, 1, 0, 2, 2, 2, 0, 1, 0];
 let correctText_array = [
-    ['たかなわ', 'こうわ', 'たかわ'],
-    ['かめど', 'かめいど', 'かめと'],
-    ['かゆまち', 'こうじまち', 'おかとまち']];
-const quizLength = 3;
+['たかなわ', 'こうわ', 'たかわ'],
+['かめど', 'かめいど', 'かめと'],
+['かゆまち', 'こうじまち', 'おかとまち'],
+['おなりもん', 'おかどもん', 'ごせいもん'],
+['たたら', 'たたりき', 'とどろき'],
+['いじい', 'せきこうい', 'しゃくじい'],
+['ざっしき','ざっしょく', 'ぞうしき'],
+['おかちまち', 'みとちょう', 'ごしろちょう'],
+['ろっこつ', 'ししぼね', 'しこね'],
+['こぐれ', 'こばく', 'こしゃく'],
+];
+const quizLength = 10;
 
 //クイズタイトル、画像、選択肢、回答ボックスの表示
 for (let i = 0; i < quizLength; i++) {
@@ -34,6 +42,8 @@ for (let i = 0; i < quizLength; i++) {
     let answerBoxDiv = document.createElement('div');
     answerBoxDiv.id = `answerbox-div${i}`;
     document.body.appendChild(answerBoxDiv);
+
+    document.body.appendChild(document.createElement('br'));
 }
 
 //クリックした時の挙動
