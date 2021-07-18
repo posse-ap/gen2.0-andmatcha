@@ -48,7 +48,7 @@ for (let i = 0; i < quizLength; i++) {
 
 //クリックした時の挙動
 let clickfunction = function (quizNum, optionNum, correctNum) {　//クリックすると3つの変数が更新される
-    let clickedchoice = document.getElementById(`option${quizNum}-${optionNum}`);　//クリックしたliを取得
+    let clickedOption = document.getElementById(`option${quizNum}-${optionNum}`);　//クリックしたliを取得
     let correctAnswer = document.getElementById(`option${quizNum}-${correctNum}`); //正解のliを取得
     let answerBoxDiv = document.getElementById(`answerbox-div${quizNum}`);　//回答ボックスのdivを取得
     let optionsLength = document.getElementById(`options-quiz${quizNum}`).childElementCount; //該当設問における選択肢の個数を取得（基本3つ）
@@ -71,8 +71,8 @@ let clickfunction = function (quizNum, optionNum, correctNum) {　//クリック
         answerBoxDiv.appendChild(resultParagraph);
     });
 
-    clickedchoice.classList.add('clickedchoice-red'); //クリックしたliを赤くする
-    correctAnswer.classList.add('correctchoice-blue'); //正解のliを青くする（正解を選んだ場合は上書きされる）
+    clickedOption.classList.add('clickedOption-red'); //クリックしたliを赤くする
+    correctAnswer.classList.add('correctOption-blue'); //正解のliを青くする（正解を選んだ場合は上書きされる）
 
     //正誤判定
     if (correctNum === optionNum) {

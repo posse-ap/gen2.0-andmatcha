@@ -44,11 +44,11 @@ li {
 }
 
 /* 回答後の選択肢 */
-.clickedchoice-red{
+.clickedOption-red{
     color:#fff;
     background-color: #ff5128;
 }
-.correctchoice-blue{
+.correctOption-blue{
     color: #fff;
     background-color: #287dff;
 
