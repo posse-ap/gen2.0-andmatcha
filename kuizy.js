@@ -74,8 +74,8 @@ let clickfunction = function (quizNum, optionNum, correctNum) {　//クリック
     }
 
     //クリックできなくする
-    for (let k = 0; k < optionsLength; k++) {
-        document.getElementById(`option${quizNum}-${k}`).classList.add('cannotclick');
+    for (let j = 0; j < optionsLength; j++) {
+        document.getElementById(`option${quizNum}-${j}`).classList.add('cannotclick');
     };
 
     //ログ表示
