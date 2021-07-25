@@ -1,4 +1,4 @@
-//問題番号、選択肢番号は０から数えています
+//問題番号、選択肢番号は０から数えています。
 let quizNum;
 let optionNum;
 const correctNum = 0;
