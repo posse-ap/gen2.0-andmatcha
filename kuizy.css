@@ -1,61 +1,300 @@
 body {
-    max-width: 650px;
-    margin: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
 
 /* ページ先頭 */
-.quiz-title {
+
+header {
+    position: fixed;
+    z-index: 10;
+    display: block;
+    width: 100%;
+    height: 40px;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 1px rgb(0 0 0 / 2%), 0 1px 2px 0 rgb(0 0 0 / 8%);
+}
+
+.content-wrapper {
+    max-width: 650px;
+    width: 100%;
+    height: 40px;
+    margin: 0 auto;
+    font-family: sans-serif;
+}
+
+.menu-button {
+    display: inline-block;
+    position: relative;
+    margin-left: 10px;
+    text-decoration: none;
+    width: 24px;
+    height: 24px;
+}
+
+.menu-button-text {
+    position: absolute;
+    font-family: monospace;
+    transform: translateY(9px);
+    font-size: 24px;
+    color: #161616;
+}
+
+.tab-container {
+    display: block;
+    background-color: #fafafa;
+    padding-top: 40px;
+    margin: 0 auto;
+    max-width: 650px;
+    width: 100%;
+    height: 50px;
+}
+
+.tabs {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+}
+
+.tab-button {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 3pt;
+    width: 25%;
+    height: 50px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 8px;
+    margin: 0;
+    background: #fafafa;
+    color: #161616;
+    border-color: #ebebeb;
+    border-style: solid;
+    border-width: .1px;
+}
+
+.tab-text {
+    position: absolute;
+    transform: translateX(-50%);
+    bottom: 3px;
+}
+
+.quiz-ad-top {
+    display: block;
+    box-sizing: border-box;
+    background-color:　#fcfcfc;
+    border-width: 0 0 .5px 0;
+    border-style: solid;
+    border-color: #ebebeb;
+    width: 100%;
+    max-width: 650px;
+    height: 35px;
+    margin: 0 auto;
+    padding: 5px 10px;
+}
+
+.quizy-ad-link {
+    text-decoration: none;
+    color: #161616;
+    font-size: 12px;
+    font-weight: lighter;
+}
+
+.link-here {
+    color: #287dff;
+}
+
+h1 {
+    margin: 0;
     font-size: 19px;
+    font-weight: 600;
+    margin: 15px 15px 0 15px;
+}
+
+.userinfo-box {
+    margin: 10px 15px;
+    display: flex;
+}
+
+.user-icon {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    vertical-align: baseline;
+    margin: 0 10px 0 0;
+}
+
+.username-box {
+    position: relative;
+    width: 90px;
+    height: 40px;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.username {
+    position: absolute;
+    transform: translateY(12px);
+    display: inline;
+    text-decoration: none;
+    font-size: 12px;
+    color: #25abd8;
+}
+
+.tag-box {
+    display: block;
+    margin: 10px 15px 5px 15px;
+}
+
+.tag-text {
+    color: #287dff;
+    font-size: 12px;
+    text-decoration: none;
+    margin-right: 5px;
+    padding: 3px 6px;
+    border: 2px solid #287dff;
+    border-radius: 2px;
+    width: 40px;
+    height: 24px;
+    font-weight: bold;
+}
+
+.user-score {
+    display: block;
+    margin: 0 15px;
+    height: 24px;
+    font-size: 12px;
+    color: #555;
+}
+
+.count {
+    color: #ff5f5f;
+    padding-right: 10px;
+    padding-left: 3px;
+}
+
+.user-score-caution {
+    display: block;
+    margin: 0 15px;
+    font-size: 12px;
+    color: #888888;
+}
+
+.social-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 620px;
+    height: 54px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.social-button {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+
+}
+
+
+.tweet-button {
+    background-color: #00aced;
+}
+
+.facebook-button {
+    background-color: #3b5998;
+}
+
+.line-button {
+    background-color: #00c300;
+}
+
+.ad-box{
+    display: block;
 }
 
 /* 問題の画像 */
+
 img {
     width: 100%;
 }
 
 /* 問題ごとの先頭 */
-h2 {
+
+.quiz-title {
+    display: inline-block;
+    margin: 0;
     font-size: 17px;
-    font-weight:600;
+    line-height: 20px;
+    font-weight: 600;
 }
 
-.border-underline {
-    border-bottom: solid 2px #00ab36;
-    padding-bottom: 10px;
+.quiz-title::after {
+    content: "";
+    display: block;
+    margin-top: 10px;
+    width: 120px;
+    height: 2px;
+    background-color: #00ab36;
+}
+
+/* 問題ごと */
+
+.quiz-box {
+    margin: 30px 15px;
 }
 
 /* 選択肢のデフォルトのスタイル */
-ul {
+
+.options-list {
     list-style-type: none;
+    margin: 0;
     padding: 0;
+    border: 0;
+    width: 100%;
 }
 
-li {
-    border-style: solid;
-    border-color: lightgray;
-    border-width: 1px 1px 2px 1px;
+.option-item {
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid #ebebeb;
     border-radius: 2px;
     padding: 13px;
     margin: 10px 0;
     font-weight: bold;
     font-size: 16px;
-    cursor:pointer;
+    cursor: pointer;
     width: 100%;
+    box-shadow: 0 3px 2px -2px rgb(0 0 0 / 13%);
 }
 
 /* 回答後の選択肢 */
-.clickedOption-red{
-    color:#fff;
+
+.clicked-option {
+    color: #fff;
     background-color: #ff5128;
 }
-.correctOption-blue{
+
+.correct-option {
     color: #fff;
     background-color: #287dff;
-
 }
 
 /* 回答ボックス */
-.answer-box{
+
+.result-box {
     background-color: #f5f5f5;
     width: 100%;
     padding: 17px;
@@ -63,7 +302,7 @@ li {
     border-radius: 3px;
 }
 
-.quiz-result-title{
+.result-title {
     font-size: 16px;
     line-height: 20px;
     font-weight: 600;
@@ -73,15 +312,15 @@ li {
     display: inline-block;
 }
 
-.quiz-result-correct{
-border-bottom: solid 3px #287dff;
+.result-correct {
+    border-bottom: solid 3px #287dff;
 }
 
-.quiz-result-incorrect{
+.result-incorrect {
     border-bottom: solid 3px #ff5128;
 }
 
-.quiz-result-paragraph{
+.result-text {
     margin: 0;
     padding: 0;
     border: 0;
@@ -89,6 +328,7 @@ border-bottom: solid 3px #287dff;
 }
 
 /* 回答後、選択肢のクリック無効化 */
-.cannotclick{
+
+.cannot-click {
     pointer-events: none;
 }
