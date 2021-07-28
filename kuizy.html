@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ガチで東京の人しか解けない！#東京の難読地名クイズ</title>
     <link rel="stylesheet" href="kuizy.css">
-    <link rel="shortcut icon" href="./img/favicon.ico"/>
+    <link rel="shortcut icon" href="img/favicon.ico"/>
 </head>
 
 <body>
@@ -16,6 +16,7 @@
             <a href="https://www.google.com/" class="menu-button"><span class="menu-button-text">≡</span></a>
         </div>
     </header>
+    <!-- タブバー -->
     <div class="tab-container">
         <ul class="tabs">
             <a href="https://www.google.com/" class="tab-button"><span class="tab-text">クイズ</span></a>
@@ -24,31 +25,45 @@
             <a href="https://www.google.com/" class="tab-button"><span class="tab-text">ログイン</span></a>
         </ul>
     </div>
-    <div class="quiz-ad-top">
-        <a href="https://www.google.com/" class="quizy-ad-link">新登場！絵を描いてしりとりするゲームがKuizyに登場！詳しくは<span class="link-here">こちら</span>！</a>
+    <!-- kuizy広告 -->
+    <div class="quizy-ad-top">
+        <a href="https://www.google.com/" class="quizy-ad-top-text">新登場！絵を描いてしりとりするゲームがKuizyに登場！詳しくは<span class="link-here">こちら</span>！</a>
     </div>
 
-    <!-- ページ先頭 -->
-    <div id="container" class="content-wrapper">
+    <!-- メインコンテンツ -->
+    <div class="content-wrapper">
         <h1>ガチで東京の人しか解けない！　#東京の難読地名クイズ</h1>
+        <!-- ユーザー情報 -->
         <div class="userinfo-box">
-            <img src="./img/usericon.jpg" alt="user icon" class="user-icon">
+            <img src="img/usericon.jpg" alt="user icon" class="user-icon">
             <div class="username-box">
                 <a href="https://www.google.com/" class="username">@kuizy_net</a>
             </div>
         </div>
+        <!-- 「東京」タグ -->
         <div class="tag-box">
             <a href="https://www.google.com/" class="tag-text">東京</a>
         </div>
+        <!-- クイズに関する統計情報 -->
         <p id="user" class="user-score">ビュー数<span class="count">000</span>平均正答率<span class="count">000%</span>全問正解率<span class="count">000%</span></p>
         <p class="user-score-caution">正答率などの反映は少し遅れることがあります。</p>
-
+        <!-- SNS共有 -->
         <div class="social-box">
             <a href="https://www.google.com/" class="social-button tweet-button">t</a>
             <a href="https://www.google.com/" class="social-button facebook-button">f</a>
             <a href="https://www.google.com/" class="social-button line-button">L</a>
         </div>
-        <div class="ad-box"></div>
+        <!-- スポンサー広告 -->
+        <div class="ad-box">
+            <a href="https://www.google.com/" class="ad-img"><img src="img/ad.jpg" alt="広告"></a>
+        </div>
+        <!-- クイズ部分 -->
+        <div id="quiz-container"></div>
+        <!-- ページ末尾 -->
+        <div class="">
+            <p>クイズに間違いを発見された方は<a href="https://www.google.com/">こちら</a>からご報告ください。</p>
+        </div>
+        
     </div>
     <script src="kuizy.js"></script>
 </body>

@@ -6,6 +6,8 @@ body {
 
 /* ページ先頭 */
 
+/* ヘッダー内 */
+
 header {
     position: fixed;
     z-index: 10;
@@ -14,14 +16,6 @@ header {
     height: 40px;
     background-color: #ffffff;
     box-shadow: 0 0 0 1px rgb(0 0 0 / 2%), 0 1px 2px 0 rgb(0 0 0 / 8%);
-}
-
-.content-wrapper {
-    max-width: 650px;
-    width: 100%;
-    height: 40px;
-    margin: 0 auto;
-    font-family: sans-serif;
 }
 
 .menu-button {
@@ -40,6 +34,8 @@ header {
     font-size: 24px;
     color: #161616;
 }
+
+/* タブバー */
 
 .tab-container {
     display: block;
@@ -82,10 +78,12 @@ header {
     bottom: 3px;
 }
 
-.quiz-ad-top {
+/* kuizyの広告 */
+
+.quizy-ad-top {
     display: block;
     box-sizing: border-box;
-    background-color:　#fcfcfc;
+    background-color: #fcfcfc;
     border-width: 0 0 .5px 0;
     border-style: solid;
     border-color: #ebebeb;
@@ -96,7 +94,7 @@ header {
     padding: 5px 10px;
 }
 
-.quizy-ad-link {
+.quizy-ad-top-text {
     text-decoration: none;
     color: #161616;
     font-size: 12px;
@@ -106,6 +104,18 @@ header {
 .link-here {
     color: #287dff;
 }
+
+/* メインコンテンツ */
+
+.content-wrapper {
+    max-width: 650px;
+    width: 100%;
+    height: 40px;
+    margin: 0 auto;
+    font-family: sans-serif;
+}
+
+/* メインコンテンツ先頭 */
 
 h1 {
     margin: 0;
@@ -190,7 +200,7 @@ h1 {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 620px;
+    max-width: 650px;
     height: 54px;
     margin: 0;
     padding: 0;
@@ -199,6 +209,7 @@ h1 {
 
 .social-button {
     display: inline-block;
+    border-radius: 5px;
     width: 48px;
     height: 48px;
     margin-right: 10px;
@@ -207,9 +218,8 @@ h1 {
     font-size: 30px;
     font-weight: 700;
     text-align: center;
-
+    box-shadow: 0 3px 2px -2px rgb(0 0 0 / 13%);
 }
-
 
 .tweet-button {
     background-color: #00aced;
@@ -223,17 +233,23 @@ h1 {
     background-color: #00c300;
 }
 
-.ad-box{
+.ad-box {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.ad-img {
     display: block;
+    width: 50%;
 }
 
-/* 問題の画像 */
+/* クイズ部分 */
 
-img {
-    width: 100%;
+.quiz-box {
+    margin: 30px 15px;
 }
-
-/* 問題ごとの先頭 */
 
 .quiz-title {
     display: inline-block;
@@ -252,13 +268,9 @@ img {
     background-color: #00ab36;
 }
 
-/* 問題ごと */
-
-.quiz-box {
-    margin: 30px 15px;
+img {
+    width: 100%;
 }
-
-/* 選択肢のデフォルトのスタイル */
 
 .options-list {
     list-style-type: none;
@@ -312,14 +324,6 @@ img {
     margin-top: 0;
     margin-bottom: 10px;
     display: inline-block;
-}
-
-.result-correct {
-    border-bottom: solid 3px #287dff;
-}
-
-.result-incorrect {
-    border-bottom: solid 3px #ff5128;
 }
 
 .result-text {
