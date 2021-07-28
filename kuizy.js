@@ -87,3 +87,5 @@ let clickfunction = function (quizNum, chosenOptionNum) {　//クリックする
         document.getElementById(`option${quizNum}-${optionIndex}`).classList.add('cannot-click');
     };
 }
+
+//test
