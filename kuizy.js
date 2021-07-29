@@ -88,4 +88,3 @@ const clickfunction = function (quizNum, chosenOptionNum) {
         document.getElementById(`option${quizNum}-${optionIndex}`).classList.add('cannot-click');
     };
 }
-//test
