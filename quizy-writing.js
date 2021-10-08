@@ -5,18 +5,34 @@ const quizArray = [
 ];
 
 //TODO クリックした時の動作
+function clickfunction (quizIndex, clickedOptionIndex, correctOptionIndex) {
+    //クリック無効化
+    document.getElementsByName(`options[${quizIndex}]`).forEach(function (value, index) {
+        document.getElementById(`option${quizIndex}_${index}`).style.pointerEvents = 'none';
+    });
+    //クリックした選択肢の見た目を変える
+    document.getElementById(`option${quizIndex}_${clickedOptionIndex}`).className = 'clicked_option';
+    //正解の選択肢の見た目を変える
+    document.getElementById(`option${quizIndex}_${correctOptionIndex}`).className = 'correct_option';
+    //回答ボックスの表示
+    document.getElementById('answerBox').classList.remove('hide');
+    document.getElementById('answerText').classList.remove('hide');
+    if (clickedOptionIndex === correctOptionIndex) {
+        document.getElementById('answerTitle').innerText = '正解！';
+    }
+}
 
 function createQuiz(optionsArray, quizIndex, correctOptionIndex) {
-    let contents = `<h2>${quizIndex + 1}この地名は何て読む？</h2>`
-        + `<img src="./images/quiz${quizIndex}.png">`
+    let contents = `<h2>${quizIndex + 1}.この地名は何て読む？</h2>`
+        + `<p class="img_box"><img src="./images/quiz${quizIndex}.png"></p>`
         + `<ul>`;
     optionsArray.forEach(function (option, optionIndex) {
-        contents += `<li onclick="clickfunction(${quizIndex}, ${optionIndex}, ${correctOptionIndex})">${option}</li>`
+        contents += `<li onclick="clickfunction(${quizIndex}, ${optionIndex}, ${correctOptionIndex})" name="options[${quizIndex}]" id="option${quizIndex}_${optionIndex}">${option}</li>`
     });
     contents += `</ul>`
-        + `<div id="answerBox">`
+        + `<div id="answerBox" class="answeer_box hide">`
         + `<h3 id="answerTitle"></h3>`
-        + `<p id="ansewerText">正解は${optionsArray[correctOptionIndex]}です！</p></div>`
+        + `<p id="ansewerText" class="hide">正解は${optionsArray[correctOptionIndex]}です！</p></div>`
     document.getElementById('main').insertAdjacentHTML('beforeend', contents);
     console.log(optionsArray)
 }
