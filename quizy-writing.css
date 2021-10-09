@@ -1,11 +1,20 @@
 .main {
-    margin: 0 5%;
+    margin: 0 20%;
+}
+
+h2 {
+    font-size: 25px;
+    font-weight: 600;
 }
 
 .img_box {
     display: block;
     margin: 0 auto;
-    width: fit-content;
+    width: 100%;
+}
+
+.img_box img {
+    width: 100%;
 }
 
 ul {
@@ -21,8 +30,10 @@ ul li {
     margin: 10px auto;
     padding: 5px 20px;
     font-size: 24px;
-    width: 60%;
+    width: 100%;
+    height: 50px;
     min-width: 370px;
+    line-height: 36px;
     cursor: pointer;
 }
 
@@ -38,4 +49,32 @@ ul li {
 .correct_option {
     background-color: #afdddd;
     color: #fff;
+}
+
+.answer_box {
+    height: 150px;
+    width: 100%;
+    background-color: #eee;
+    border-radius: 4px;
+    padding: 20px 25px;
+    position: relative;
+}
+
+.answer_title {
+    font-size: 20px;
+    font-weight: 550;
+    margin-bottom: 18px;
+}
+
+/* .answer_title::after {
+    content: "";
+    border: #afdddd solid 2px;
+    width: 80px;
+    position: absolute;
+    top: 45px;
+    left: 25px;
+} */
+
+.answer_text {
+    font-size: 18px;
 }

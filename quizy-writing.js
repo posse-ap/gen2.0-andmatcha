@@ -15,10 +15,12 @@ function clickfunction (quizIndex, clickedOptionIndex, correctOptionIndex) {
     //正解の選択肢の見た目を変える
     document.getElementById(`option${quizIndex}_${correctOptionIndex}`).className = 'correct_option';
     //回答ボックスの表示
-    document.getElementById('answerBox').classList.remove('hide');
-    document.getElementById('answerText').classList.remove('hide');
+    document.getElementById(`answerBox${quizIndex}`).classList.remove('hide');
+    // document.getElementById('answerText').classList.remove('hide');
     if (clickedOptionIndex === correctOptionIndex) {
-        document.getElementById('answerTitle').innerText = '正解！';
+        document.getElementById(`answerTitleInner${quizIndex}`).innerText = '正解！';
+    } else {
+        document.getElementById(`answerTitleInner${quizIndex}`).innerText = '不正解！';
     }
 }
 
@@ -30,11 +32,10 @@ function createQuiz(optionsArray, quizIndex, correctOptionIndex) {
         contents += `<li onclick="clickfunction(${quizIndex}, ${optionIndex}, ${correctOptionIndex})" name="options[${quizIndex}]" id="option${quizIndex}_${optionIndex}">${option}</li>`
     });
     contents += `</ul>`
-        + `<div id="answerBox" class="answeer_box hide">`
-        + `<h3 id="answerTitle"></h3>`
-        + `<p id="ansewerText" class="hide">正解は${optionsArray[correctOptionIndex]}です！</p></div>`
+        + `<div id="answerBox${quizIndex}" class="answer_box hide">`
+        + `<h3 class="answer_title"><span id="answerTitleInner${quizIndex}"></span></h3>`
+        + `<p id="ansewerText" class="answer_text">正解は${optionsArray[correctOptionIndex]}です！</p></div>`
     document.getElementById('main').insertAdjacentHTML('beforeend', contents);
-    console.log(optionsArray)
 }
 
 function createHTML() {
