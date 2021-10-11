@@ -3,8 +3,20 @@
 }
 
 h2 {
+    position: relative;
     font-size: 25px;
     font-weight: 600;
+    margin: 20px 0;
+}
+
+h2::after {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    content: '';
+    width: 150px;
+    height: 0;
+    border: #aade34 solid 2px;
 }
 
 .img_box {
@@ -66,14 +78,9 @@ ul li {
     margin-bottom: 18px;
 }
 
-/* .answer_title::after {
-    content: "";
-    border: #afdddd solid 2px;
-    width: 80px;
-    position: absolute;
-    top: 45px;
-    left: 25px;
-} */
+.answer_title_inner {
+    border-bottom: solid 3px #ffbdaa;
+}
 
 .answer_text {
     font-size: 18px;

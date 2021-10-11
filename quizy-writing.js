@@ -17,10 +17,13 @@ function clickfunction (quizIndex, clickedOptionIndex, correctOptionIndex) {
     //回答ボックスの表示
     document.getElementById(`answerBox${quizIndex}`).classList.remove('hide');
     // document.getElementById('answerText').classList.remove('hide');
+    const answerTitle = document.getElementById(`answerTitleInner${quizIndex}`);
     if (clickedOptionIndex === correctOptionIndex) {
-        document.getElementById(`answerTitleInner${quizIndex}`).innerText = '正解！';
+        answerTitle.innerText = '正解！';
+        answerTitle.style.borderColor = '#afdddd';
     } else {
-        document.getElementById(`answerTitleInner${quizIndex}`).innerText = '不正解！';
+        answerTitle.innerText = '不正解！';
+        answerTitle.style.borderColor = '#ffbdaa';
     }
 }
 
@@ -33,7 +36,7 @@ function createQuiz(optionsArray, quizIndex, correctOptionIndex) {
     });
     contents += `</ul>`
         + `<div id="answerBox${quizIndex}" class="answer_box hide">`
-        + `<h3 class="answer_title"><span id="answerTitleInner${quizIndex}"></span></h3>`
+        + `<h3 class="answer_title"><span id="answerTitleInner${quizIndex}" class="answer_title_inner"></span></h3>`
         + `<p id="ansewerText" class="answer_text">正解は${optionsArray[correctOptionIndex]}です！</p></div>`
     document.getElementById('main').insertAdjacentHTML('beforeend', contents);
 }
