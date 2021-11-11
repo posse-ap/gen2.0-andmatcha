@@ -1,6 +1,25 @@
+html {
+    height: 100%;
+    margin: 0;
+}
 body {
     width: 100%;
-    height: calc(100vh - 144px);
+    height: fit-content;
+}
+/* ヘッダー */
+.header_button {
+    position: fixed;
+    height: 45px;
+    top: 0;
+    right: 20px;
+    background: linear-gradient(90deg, #0F70BB, #3BCFFF);
+    color: #fff;
+    margin: 10px 50px 10px auto;
+    border-radius: 20px;
+    z-index: 3;
+}
+.header_button span {
+    margin: auto 60px;
 }
 .header {
     width: 100%;
@@ -18,6 +37,14 @@ body {
 .header_logo_container img {
     width: 100%;
 }
+.header_week {
+    color: #a5a5a5;
+    margin: auto 30px;
+    font-size: 12px;
+    line-height: 150%;
+}
+
+/* メインコンテンツ */
 .main {
     margin-top: 64px;
     padding: 20px 80px 0;
@@ -28,53 +55,382 @@ body {
     height: 100%;
     background-color: #fafafa;
 }
-.main_left {
-    /* width: 500px; */
-    flex-grow: 2;
+/* メインコンテンツ > モーダル */
+.modal_background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background-color: #000;
+    visibility: visible;
+    opacity: 0.5;
+}
+.modal_wrapper {
+    position: absolute;
+    max-width: 960px;
+    width: 100%;
+    height: 600px;
+    top: calc(50% - 300px);
+    left: calc(50% - 480px);
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 3;
+    border-radius: 40px;
+    visibility: visible;
+    opacity: 1;
+}
+.close_button {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    color: #666;
+    background-color: #F5F5F8;
+    border-radius: 50%;
+    z-index: 6;
+}
+/* メインコンテンツ > モーダル > ロード中の画面 */
+.loading {
+    position: absolute;
+    width: 960px;
+    height: 600px;
+    top: calc(50% - 300px);
+    left: calc(50% - 480px);
+    background-color: #fff;
+    z-index: 4;
+    border-radius: 40px;
+    visibility: visible;
+    opacity: 1;
+}
+.loading_circle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(90deg, #0F70BB, #3BCFFF);
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    border-radius: 50%;
+    animation-name: loadingAnime;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.loading_circle_inner {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    top: calc(50% - 40px);
+    left: calc(50% - 40px);
+    border-radius: 50%;
+}
+.loading_square {
+    position: absolute;
+    z-index: 6;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+}
+@keyframes loadingAnime {
+    from {
+        transform: rotate(-180deg);
+    }
+    to {
+        transform: rotate(180deg);
+    }
+}
+/* メインコンテンツ > モーダル > 完了画面 */
+.done {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 960px;
+    height: 600px;
+    top: calc(50% - 300px);
+    left: calc(50% - 480px);
+    background-color: #fff;
+    z-index: 4;
+    border-radius: 40px;
+    visibility: visible;
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+}
+.awesome {
+    color: #BDE360;
+}
+.done_checkbox {
+    width: 60px;
+    border-radius: 50%;
+    background-color: #BDE360;
+    color: #fff;
+    margin: 15px 0 30px 0;
+}
+.done_text {
+    font-size: 18px;
+    text-align: center;
+}
+.done_text br {
+        display: block;
+        content: "";
+        height: 6px;
+}
+/* メインコンテンツ > モーダル > モーダルのトップ画面 */
+.modal {
+    position: absolute;
+    display: flex;
+    max-width: 960px;
+    width: 100%;
+    height: 600px;
+    padding: 50px;
+    top: calc(50% - 300px);
+    left: calc(50% - 480px);
+    background-color: #fff;
+    z-index: 4;
+    border-radius: 40px;
+    gap: 40px;
+    visibility: visible;
+    opacity: 1;
+}
+.post_button {
+    position: absolute;
+    width: 360px;
+    padding: 20px 30px;
+    bottom: 60px;
+    right: calc(50% - 180px);
+    background: linear-gradient(90deg, #0F70BB, #3BCFFF);
+    text-align: center;
+    border-radius: 50px;
+    color: #fff;
+}
+.modal_box {
+    width: 50%;
+    height: calc(100% - 50px);
+}
+.modal_contents {
+    margin: 30px 0;
+}
+.option {
+    display: inline-flex;
+    padding: 10px;
+    margin: 3px;
+    height: 2em;
+    align-items: center;
+    gap: 5px;
+    background-color: #F5F5F8;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.modal_contents_share {
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    cursor: pointer;
+}
+.modal_contents_share input {
+    display: none;
+}
+.modal_contents p {
+    font-size: 12px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+.modal_contents input {
+    width: 100%;
+    background-color: #F5F5F8;
+    border-radius: 10px;
+}
+.input_date {
+    height: 50px;
+}
+.input_hour {
+    height: 50px;
+}
+.input_comment {
+    width: 100%;
+    height: 200px;
+    background-color: #F5F5F8;
+    border-radius: 10px;
+}
+.checkbox_svg {
+    width: 20px;
+    color: #fff;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+.checkbox_share_svg {
+    width: 30px;
+    color: #fff;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+.text_share {
+    margin: 0 10px;
+    font-size: 12px;
+}
+
+/* メイン */
+
+.main_contents_wrapper {
+    display: flex;
+    gap: 20px;
+}
+.main_contents_first_block {
+    width: calc(50% - 20px);
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background-color: blue;
 }
 .main_left_top {
-    height: 150px;
+    height: 120px;
     display: flex;
     flex-direction: row;
     gap: 20px;
-    background-color: pink;
 }
-.main_left_top div {
+.main_left_top_panel {
     border-radius: 10px;
-}
-.main_left_top_today {
     flex-grow: 1;
-    background-color: lightblue;
+    background-color: #fff;
+    box-shadow: 0 0 8px #bbb;
+    padding: 15px;
 }
-.main_left_top_month {
-    flex-grow: 1;
-    background-color: lightblue;
+.main_left_top_panel p {
+    text-align: center;
 }
-.main_left_top_total {
-    flex-grow: 1;
-    background-color: lightblue;
+.time_title {
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: #0f70bb;
+}
+.time_number {
+    font-size: 32px;
+    font-weight: 900;
+    margin: 10px 0;
+}
+.time_hour {
+    font-size: 18px;
+    color: #a4c2d6;
 }
 .main_left_bottom {
-    height: 400px;
+    height: 100%;
     border-radius: 10px;
-    background-color: purple;
+    box-shadow: 0 0 8px #bbb;
+    overflow: hidden;
+    padding: 20px;
+    width: 100%;
+    background-color: #fff;
 }
-.main_middle {
-    /* width: 300px; */
-    flex-grow: 1;
-    border-radius: 10px;
-    background-color: green;
+.barchart_container {
+    width: 100%;
+    height: 100%;
+}
+.barchart_container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.main_contents_second_block {
+    width: calc(50% - 20px);
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 .main_right {
-    /* width: 300px; */
-    flex-grow: 1;
+    width: calc(25% - 10px);
     border-radius: 10px;
-    background-color: orange;
+    box-shadow: 0 0 8px #bbb;
+    padding: 30px 20px;
+    background-color: #fff;
+}
+.main_right_title {
+    font-size: 18px;
+    font-weight: 600;
+}
+.piechart_container {
+    width: 100%;
+    max-height: 270px;
+    margin: 30px 0;
+}
+.piechart_container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.legend {
+    width: 100%;
+}
+.legend_item {
+    display: inline-block;
+    margin: 0.5em 1em;
+    position: relative;
+}
+.legend_item::before {
+    content: " ";
+    background-color: chartreuse;
+    border-radius: 50%;
+    display: block;
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    top: 0;
+    left: -1.2em;
 }
 .footer {
     height: 80px;
+    padding: auto;
+    background-color: #fafafa;
+}
+.footer_calendar {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.month_box {
+    display: inline-block;
+    margin: 0 12px;
+}
+.prev_button, .next_button{
+    width: 20px;
+    color: #0f70bb;
+}
+.inactive_button {
+    color: #97B9D1;
+}
+
+/* JS */
+.clicked_option {
+    background-color: #E7F5FF;
+}
+.clicked_checkbox {
+    background-color: #0F70BD;
+}
+.hide {
+    visibility: hidden;
+    opacity: 0;
+    z-index: 0;
+}
+
+@media screen and (max-width: 959px) {
+    .main_contents_wrapper {
+        flex-direction: column;
+    }
+    .main_contents_first_block {
+        width: 100%;
+    }
+    .main_contents_second_block {
+        width: 100%;
+    }
+.main_right {
+    width: 50%;
+}
 }

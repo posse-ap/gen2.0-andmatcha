@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,36 +9,256 @@
     <link rel="stylesheet" href="./destyle.css">
     <link rel="stylesheet" href="./index.css">
 </head>
+
 <body>
+    <!-- ヘッダー -->
+    <button class="header_button" id="openButton"><span>記録・投稿</span></button>
     <header class="header">
         <div class="header_logo_container">
             <img src="./img/posse.svg" alt="POSSE">
         </div>
+        <p class="header_week">4th week</p>
     </header>
     <div class="main">
-        <div class="main_left">
-            <div class="main_left_top">
-                <div class="main_left_top_today">
-                    <!-- 今日の学習時間 -->
-                </div>
-                <div class="main_left_top_month">
-                    <!-- 今月の学習時間 -->
-                </div>
-                <div class="main_left_top_total">
-                    <!-- 合計の学習時間 -->
+        <!-- モーダル -->
+        <div class="modal_background hide" id="modal_background"></div>
+        <div class="modal_wrapper">
+            <button class="close_button hide" id="closeButton">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+            <div class="loading hide" id="loading">
+                <div class="loading_circle">
+                    <div class="loading_circle_inner"></div>
+                    <div class="loading_square"></div>
                 </div>
             </div>
-            <div class="main_left_bottom">
-                <!-- ここ棒グラフ -->
+            <div class="done hide" id="done">
+                <p class="awesome">AWESOME!</p>
+                <p class="done_checkbox">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </p>
+                <p class="done_text">記録・投稿<br>完了しました</p>
+            </div>
+            <div class="modal hide" id="modal">
+                <button class="post_button" id="postButton" onclick="tweet()">記録・投稿</button>
+                <div class="modal_box modal_box1">
+                    <div class="modal_contents">
+                        <p>学習日</p>
+                        <input type="date" class="input_date">
+                    </div>
+                    <div class="modal_contents">
+                        <p>学習コンテンツ（複数選択可）</p>
+                        <ul class="options">
+                            <li class="option" onclick="clickOption(1)" id="option1">
+                                <span class="checkbox"><svg id="checkbox1" class="checkbox_svg w-6 h-6" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg></span>
+                                <span>N予備校</span>
+                            </li>
+                            <li class="option" onclick="clickOption(2)" id="option2">
+                                <span class="checkbox"><svg id="checkbox2" class="checkbox_svg w-6 h-6" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg></span>
+                                <span>ドットインストール</span>
+                            </li>
+                            <li class="option" onclick="clickOption(3)" id="option3">
+                                <span class="checkbox"><svg id="checkbox3" class="checkbox_svg w-6 h-6" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg></span>
+                                <span>POSSE課題</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modal_contents">
+                        <p>学習言語（複数選択可）</p>
+                        <ul class="options">
+                            <li class="option" onclick="clickOption(4)" id="option4">
+                                <span class="checkbox"><svg id="checkbox4" class="checkbox_svg w-6 h-6" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg></span>
+                                <span>HTML</span>
+                            </li>
+                            <li class="option" onclick="clickOption(5)" id="option5">
+                                <span class="checkbox"><svg id="checkbox5" class="checkbox_svg w-6 h-6" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg></span>
+                                <span>CSS</span>
+                            </li>
+                            <li class="option" onclick="clickOption(6)" id="option6">
+                                <span class="checkbox"><svg id="checkbox6" class="checkbox_svg w-6 h-6" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg></span>
+                                <span>JavaScript</span>
+                            </li>
+                            <li class="option" onclick="clickOption(7)" id="option7">
+                                <span class="checkbox"><svg id="checkbox7" class="checkbox_svg w-6 h-6" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg></span>
+                                <span>PHP</span>
+                            </li>
+                            <li class="option" onclick="clickOption(8)" id="option8">
+                                <span class="checkbox"><svg id="checkbox8" class="checkbox_svg w-6 h-6" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg></span>
+                                <span>Laravel</span>
+                            </li>
+                            <li class="option" onclick="clickOption(9)" id="option9">
+                                <span class="checkbox"><svg id="checkbox9" class="checkbox_svg w-6 h-6" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg></span>
+                                <span>SQL</span>
+                            </li>
+                            <li class="option" onclick="clickOption(10)" id="option10">
+                                <span class="checkbox"><svg id="checkbox10" class="checkbox_svg w-6 h-6" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg></span>
+                                <span>SHELL</span>
+                            </li>
+                            <li class="option" onclick="clickOption(11)" id="option11">
+                                <span class="checkbox"><svg id="checkbox11" class="checkbox_svg w-6 h-6" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg></span>
+                                <span>情報システム基礎知識(その他)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal_box modal_box_2">
+                    <div class="modal_contents">
+                        <p>学習時間</p>
+                        <input type="text" class="input_hour">
+                    </div>
+                    <div class="modal_contents modal_contents_twitter">
+                        <p>Twitter用コメント</p>
+                        <textarea name="" id="inputArea" cols="30" rows="10" class="input_comment"></textarea>
+                    </div>
+                    <div class="modal_contents modal_contents_share" onclick="clickTweetOption()" id="tweetOption"
+                        checked>
+                        <span class="checkbox_share"><svg id="tweetCheckbox"
+                                class="checkbox_share_svg w-6 h-6 clicked_checkbox" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg></span>
+                        <span class="text_share">Twitterにシェアする</span>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="main_middle">
-            <!-- ここ学習言語の円グラフ -->
-        </div>
-        <div class="main_right">
-            <!-- ここ学習コンテンツの円グラフ -->
+
+        <!-- メインコンテンツ -->
+        <div class="main_contents_wrapper">
+            <div class="main_contents_first_block">
+                <div class="main_left_top">
+                    <div class="main_left_top_panel">
+                        <!-- 今日の学習時間 -->
+                        <p class="time_title">Today</p>
+                        <p class="time_number">3</p>
+                        <p class="time_hour">hour</p>
+                    </div>
+                    <div class="main_left_top_panel">
+                        <!-- 今月の学習時間 -->
+                        <p class="time_title">Month</p>
+                        <p class="time_number">120</p>
+                        <p class="time_hour">hour</p>
+                    </div>
+                    <div class="main_left_top_panel">
+                        <!-- 合計の学習時間 -->
+                        <p class="time_title">Month</p>
+                        <p class="time_number">1348</p>
+                        <p class="time_hour">hour</p>
+                    </div>
+                </div>
+                <div class="main_left_bottom">
+                    <!-- ここ棒グラフ -->
+                    <div class="barchart_container">
+                        <img src="./img/graph1.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class="main_contents_second_block">
+                <div class="main_right">
+                    <!-- ここ学習言語の円グラフ -->
+                    <p class="main_right_title">学習言語</p>
+                    <div class="piechart_container">
+                        <img src="./img/graph2.png">
+                    </div>
+                    <ul class="legend">
+                        <li class="legend_item">JavaScript</li>
+                        <li class="legend_item">CSS</li>
+                        <li class="legend_item">PHP</li>
+                        <li class="legend_item">HTML</li>
+                        <li class="legend_item">Laravel</li>
+                        <li class="legend_item">SQL</li>
+                        <li class="legend_item">SHELL</li>
+                        <li class="legend_item">情報システム基礎知識(その他)</li>
+                    </ul>
+                </div>
+                <div class="main_right">
+                    <!-- ここ学習コンテンツの円グラフ -->
+                    <p class="main_right_title">学習コンテンツ</p>
+                    <div class="piechart_container">
+                        <img src="./img/graph3.png">
+                    </div>
+                    <ul class="legend">
+                        <li class="legend_item">ドットインストール</li>
+                        <li class="legend_item">N予備校</li>
+                        <li class="legend_item">POSSE課題</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-    <footer class="footer"></footer>
+    <footer class="footer">
+        <div class="footer_calendar">
+            <button class="prev_button">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <p class="month_box">2020年10月</p>
+            <button class="next_button inactive_button">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+    </footer>
+
+    <script src="./index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 </body>
+
 </html>
