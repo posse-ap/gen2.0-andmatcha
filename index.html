@@ -20,6 +20,7 @@
         <p class="header_week">4th week</p>
     </header>
     <div class="main">
+
         <!-- モーダル -->
         <div class="modal_background hide" id="modal_background"></div>
         <div class="modal_wrapper">
@@ -201,7 +202,8 @@
                 <div class="main_left_bottom">
                     <!-- ここ棒グラフ -->
                     <div class="barchart_container">
-                        <img src="./img/graph1.png">
+                        <!-- <img src="./img/graph1.png"> -->
+                        <canvas id="barChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -211,7 +213,9 @@
                     <!-- ここ学習言語の円グラフ -->
                     <p class="main_right_title">学習言語</p>
                     <div class="piechart_container">
-                        <img src="./img/graph2.png">
+                        <!-- <img src="./img/graph2.png"> -->
+                        <!-- 円グラフエリア -->
+                        <canvas id="langagesPieChart"></canvas>
                     </div>
                     <ul class="legend">
                         <li class="legend_item">JavaScript</li>
@@ -228,7 +232,9 @@
                     <!-- ここ学習コンテンツの円グラフ -->
                     <p class="main_right_title">学習コンテンツ</p>
                     <div class="piechart_container">
-                        <img src="./img/graph3.png">
+                        <!-- <img src="./img/graph3.png"> -->
+                        <!-- 円グラフエリア -->
+                        <canvas id="contentsPieChart"></canvas>
                     </div>
                     <ul class="legend">
                         <li class="legend_item">ドットインストール</li>
@@ -259,6 +265,7 @@
 
     <script src="./index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+    <script src="./chart-setting.js"></script>
 </body>
 
 </html>

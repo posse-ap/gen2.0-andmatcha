@@ -4,7 +4,7 @@ html {
 }
 body {
     width: 100%;
-    height: fit-content;
+    height: calc(100% - 144px);
 }
 /* ヘッダー */
 .header_button {
@@ -281,12 +281,14 @@ body {
 .main_contents_wrapper {
     display: flex;
     gap: 20px;
+    height: 100%;
 }
 .main_contents_first_block {
     width: calc(50% - 20px);
     display: flex;
     flex-direction: column;
     gap: 20px;
+    max-height: 100%;
 }
 .main_left_top {
     height: 120px;
@@ -343,13 +345,15 @@ body {
     display: flex;
     flex-direction: row;
     gap: 20px;
+    max-height: 100%;
 }
 .main_right {
-    width: calc(25% - 10px);
+    width: 50%;
     border-radius: 10px;
     box-shadow: 0 0 8px #bbb;
     padding: 30px 20px;
     background-color: #fff;
+    height: 100%;
 }
 .main_right_title {
     font-size: 18px;
@@ -385,6 +389,7 @@ body {
     left: -1.2em;
 }
 .footer {
+    -ms-flex-order: 3;
     height: 80px;
     padding: auto;
     background-color: #fafafa;
