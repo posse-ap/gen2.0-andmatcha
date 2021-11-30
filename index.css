@@ -48,9 +48,6 @@ body {
 .main {
     margin-top: 64px;
     padding: 20px 80px 0;
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
     width: 100%;
     height: 100%;
     background-color: #fafafa;
@@ -359,12 +356,12 @@ body {
     font-size: 18px;
     font-weight: 600;
 }
-.piechart_container {
+.doughnutchart_container {
     width: 100%;
     max-height: 270px;
     margin: 30px 0;
 }
-.piechart_container img {
+.doughnutchart_container img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -426,6 +423,9 @@ body {
 }
 
 @media screen and (max-width: 959px) {
+    body {
+        height: calc(100% + 224px);
+    }
     .main_contents_wrapper {
         flex-direction: column;
     }

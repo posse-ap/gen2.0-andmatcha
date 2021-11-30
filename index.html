@@ -212,10 +212,10 @@
                 <div class="main_right">
                     <!-- ここ学習言語の円グラフ -->
                     <p class="main_right_title">学習言語</p>
-                    <div class="piechart_container">
+                    <div class="doughnutchart_container">
                         <!-- <img src="./img/graph2.png"> -->
                         <!-- 円グラフエリア -->
-                        <canvas id="langagesPieChart"></canvas>
+                        <canvas id="languagesChart" class="languages_chart"></canvas>
                     </div>
                     <ul class="legend">
                         <li class="legend_item">JavaScript</li>
@@ -231,10 +231,10 @@
                 <div class="main_right">
                     <!-- ここ学習コンテンツの円グラフ -->
                     <p class="main_right_title">学習コンテンツ</p>
-                    <div class="piechart_container">
+                    <div class="doughnutchart_container">
                         <!-- <img src="./img/graph3.png"> -->
                         <!-- 円グラフエリア -->
-                        <canvas id="contentsPieChart"></canvas>
+                        <canvas id="contentsChart"></canvas>
                     </div>
                     <ul class="legend">
                         <li class="legend_item">ドットインストール</li>
@@ -244,24 +244,25 @@
                 </div>
             </div>
         </div>
-    </div>
-    <footer class="footer">
-        <div class="footer_calendar">
-            <button class="prev_button">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-            </button>
-            <p class="month_box">2020年10月</p>
-            <button class="next_button inactive_button">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-            </button>
+        <div class="footer">
+            <div class="footer_calendar">
+                <button class="prev_button">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                        </path>
+                    </svg>
+                </button>
+                <p class="month_box">2020年10月</p>
+                <button class="next_button inactive_button">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
-    </footer>
+    </div>
 
     <script src="./index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
