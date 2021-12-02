@@ -18,8 +18,8 @@ var langsChart = new Chart(langsCtx, {
     type: 'doughnut',
     data: {
         labels: ['JavaScript', 'CSS', 'PHP', 'HTML', 'Laravel', 'SQL', 'SHEEL', '情報システム基礎知識(その他)'],
-        dataets: [{
-            data: [38, 31, 21, 10, 4, 4, 4, 4],
+        datasets: [{
+            data: [42, 18, 10, 10, 10, 4, 3, 3],
             backgroundColor: [
                 '#0445EC',
                 '#0F70BD',
@@ -29,6 +29,25 @@ var langsChart = new Chart(langsCtx, {
                 '#6C46EB',
                 '#4A17EF',
                 '#3005C0',
+            ],
+        }]
+    },
+    options: {
+        legend: false,
+        responsive: false,
+    }
+});
+
+var contentsChart = new Chart(contentsCtx, {
+    type: 'doughnut',
+    data: {
+        labels: ['ドットインストール', 'N予備校', 'POSSE課題'],
+        datasets: [{
+            data: [42, 33, 25],
+            backgroundColor: [
+                '#0445EC',
+                '#0F70BD',
+                '#20BDDE',
             ],
         }]
     },
