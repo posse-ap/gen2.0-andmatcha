@@ -2,10 +2,12 @@ html {
     height: 100%;
     margin: 0;
 }
+
 body {
     width: 100%;
     height: calc(100% - 144px);
 }
+
 /* ヘッダー */
 .header_button {
     position: fixed;
@@ -18,9 +20,11 @@ body {
     border-radius: 20px;
     z-index: 3;
 }
+
 .header_button span {
     margin: auto 60px;
 }
+
 .header {
     width: 100%;
     position: fixed;
@@ -30,13 +34,16 @@ body {
     height: 64px;
     background-color: #fff;
 }
+
 .header_logo_container {
     width: 100px;
     margin: auto 0 auto 50px;
 }
+
 .header_logo_container img {
     width: 100%;
 }
+
 .header_week {
     color: #a5a5a5;
     margin: auto 30px;
@@ -45,13 +52,14 @@ body {
 }
 
 /* メインコンテンツ */
-.main {
+.main_div {
     margin-top: 64px;
     padding: 20px 80px 0;
     width: 100%;
-    height: 100%;
+    height: fit-content;
     background-color: #fafafa;
 }
+
 /* メインコンテンツ > モーダル */
 .modal_background {
     position: absolute;
@@ -64,6 +72,7 @@ body {
     visibility: visible;
     opacity: 0.5;
 }
+
 .modal_wrapper {
     position: absolute;
     max-width: 960px;
@@ -77,6 +86,7 @@ body {
     visibility: visible;
     opacity: 1;
 }
+
 .close_button {
     position: absolute;
     top: 25px;
@@ -89,6 +99,7 @@ body {
     border-radius: 50%;
     z-index: 6;
 }
+
 /* メインコンテンツ > モーダル > ロード中の画面 */
 .loading {
     position: absolute;
@@ -102,6 +113,7 @@ body {
     visibility: visible;
     opacity: 1;
 }
+
 .loading_circle {
     position: absolute;
     width: 100px;
@@ -115,6 +127,7 @@ body {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
+
 .loading_circle_inner {
     position: absolute;
     width: 80px;
@@ -124,6 +137,7 @@ body {
     left: calc(50% - 40px);
     border-radius: 50%;
 }
+
 .loading_square {
     position: absolute;
     z-index: 6;
@@ -133,14 +147,17 @@ body {
     left: 50%;
     background-color: #fff;
 }
+
 @keyframes loadingAnime {
     from {
         transform: rotate(-180deg);
     }
+
     to {
         transform: rotate(180deg);
     }
 }
+
 /* メインコンテンツ > モーダル > 完了画面 */
 .done {
     position: absolute;
@@ -158,9 +175,11 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 .awesome {
     color: #BDE360;
 }
+
 .done_checkbox {
     width: 60px;
     border-radius: 50%;
@@ -168,15 +187,18 @@ body {
     color: #fff;
     margin: 15px 0 30px 0;
 }
+
 .done_text {
     font-size: 18px;
     text-align: center;
 }
+
 .done_text br {
-        display: block;
-        content: "";
-        height: 6px;
+    display: block;
+    content: "";
+    height: 6px;
 }
+
 /* メインコンテンツ > モーダル > モーダルのトップ画面 */
 .modal {
     position: absolute;
@@ -194,6 +216,7 @@ body {
     visibility: visible;
     opacity: 1;
 }
+
 .post_button {
     position: absolute;
     width: 360px;
@@ -205,13 +228,16 @@ body {
     border-radius: 50px;
     color: #fff;
 }
+
 .modal_box {
     width: 50%;
     height: calc(100% - 50px);
 }
+
 .modal_contents {
     margin: 30px 0;
 }
+
 .option {
     display: inline-flex;
     padding: 10px;
@@ -223,6 +249,7 @@ body {
     border-radius: 25px;
     cursor: pointer;
 }
+
 .modal_contents_share {
     display: flex;
     align-items: center;
@@ -231,43 +258,52 @@ body {
     background-color: #fff;
     cursor: pointer;
 }
+
 .modal_contents_share input {
     display: none;
 }
+
 .modal_contents p {
     font-size: 12px;
     font-weight: 600;
     margin: 10px 0;
 }
+
 .modal_contents input {
     width: 100%;
     background-color: #F5F5F8;
     border-radius: 10px;
 }
+
 .input_date {
     height: 50px;
 }
+
 .input_hour {
     height: 50px;
 }
+
 .input_comment {
     width: 100%;
     height: 200px;
     background-color: #F5F5F8;
     border-radius: 10px;
 }
+
 .checkbox_svg {
     width: 20px;
     color: #fff;
     background-color: #ccc;
     border-radius: 50%;
 }
+
 .checkbox_share_svg {
     width: 30px;
     color: #fff;
     background-color: #ccc;
     border-radius: 50%;
 }
+
 .text_share {
     margin: 0 10px;
     font-size: 12px;
@@ -280,6 +316,7 @@ body {
     gap: 20px;
     height: 100%;
 }
+
 .main_contents_first_block {
     width: calc(50% - 20px);
     display: flex;
@@ -287,12 +324,14 @@ body {
     gap: 20px;
     max-height: 100%;
 }
+
 .main_left_top {
     height: 120px;
     display: flex;
     flex-direction: row;
     gap: 20px;
 }
+
 .main_left_top_panel {
     border-radius: 10px;
     flex-grow: 1;
@@ -300,25 +339,32 @@ body {
     box-shadow: 0 0 8px #bbb;
     padding: 15px;
 }
+
 .main_left_top_panel p {
     text-align: center;
 }
+
 .time_title {
     font-weight: 700;
     font-size: 13px;
     letter-spacing: 0.06em;
     color: #0f70bb;
 }
+
 .time_number {
     font-size: 32px;
     font-weight: 900;
     margin: 10px 0;
 }
+
 .time_hour {
     font-size: 18px;
     color: #a4c2d6;
 }
+
 .main_left_bottom {
+    display: flex;
+    align-items: center;
     height: 100%;
     border-radius: 10px;
     box-shadow: 0 0 8px #bbb;
@@ -327,14 +373,10 @@ body {
     width: 100%;
     background-color: #fff;
 }
+
 .barchart_container {
     width: 100%;
-    height: 100%;
-}
-.barchart_container img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    height: fit-content;
 }
 
 .main_contents_second_block {
@@ -344,37 +386,48 @@ body {
     gap: 20px;
     max-height: 100%;
 }
+
 .main_right {
     width: 50%;
     border-radius: 10px;
     box-shadow: 0 0 8px #bbb;
     padding: 30px 20px;
     background-color: #fff;
-    height: 100%;
 }
+
 .main_right_title {
     font-size: 18px;
     font-weight: 600;
 }
+
 .doughnutchart_container {
     width: 100%;
+    height: 300px;
     max-height: 300px;
+    position: relative;
+    overflow: hidden;
 }
-.doughnutchart_container canvas {
-    max-width: 100%;
-    margin: 0 auto;
+
+.chart_area {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 200%;
 }
+
 .legend {
     width: 100%;
 }
+
 .legend_item {
     display: inline-block;
     margin: 0.5em 1em;
     position: relative;
 }
+
 .legend_item::before {
     content: " ";
-    background-color: #BDE360;
     border-radius: 50%;
     display: block;
     width: 1em;
@@ -383,6 +436,30 @@ body {
     top: 0;
     left: -1.2em;
 }
+.legend_item_index1::before {
+    background-color: #0445EC;
+}
+.legend_item_index2::before {
+    background-color: #0F70BD;
+}
+.legend_item_index3::before {
+    background-color: #20BDDE;
+}
+.legend_item_index4::before {
+    background-color: #3CCEFE;
+}
+.legend_item_index5::before {
+    background-color: #B29EF3;
+}
+.legend_item_index6::before {
+    background-color: #6C46EB;
+}
+.legend_item_index7::before {
+    background-color: #4A17EF;
+}
+.legend_item_index8::before {
+    background-color: #3005C0;
+}
 
 .footer {
     -ms-flex-order: 3;
@@ -390,20 +467,24 @@ body {
     padding: auto;
     background-color: #fafafa;
 }
+
 .footer_calendar {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .month_box {
     display: inline-block;
     margin: 0 12px;
 }
-.prev_button, .next_button{
+
+.prev_button, .next_button {
     width: 20px;
     color: #0f70bb;
 }
+
 .inactive_button {
     color: #97B9D1;
 }
@@ -412,9 +493,11 @@ body {
 .clicked_option {
     background-color: #E7F5FF;
 }
+
 .clicked_checkbox {
     background-color: #0F70BD;
 }
+
 .hide {
     visibility: hidden;
     opacity: 0;
@@ -425,16 +508,20 @@ body {
     body {
         height: calc(100% + 224px);
     }
+
     .main_contents_wrapper {
         flex-direction: column;
     }
+
     .main_contents_first_block {
         width: 100%;
     }
+
     .main_contents_second_block {
         width: 100%;
     }
-.main_right {
-    width: 50%;
-}
+
+    .main_right {
+        width: 50%;
+    }
 }
