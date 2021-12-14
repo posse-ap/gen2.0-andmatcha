@@ -1,0 +1,14 @@
+[auto]
+server-uuid=b01de489-5755-11ec-b08a-2cb60c195871
+
+[client]
+default-character-set=utf8
+
+[mysql]
+default-character-set=utf8
+
+[mysqldump]
+default-character-set=utf8
+
+[mysqld]
+character-set-server=utf8
