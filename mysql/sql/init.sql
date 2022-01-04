@@ -26,10 +26,10 @@ INSERT INTO questions (`big_question_id`, `image`) VALUES
 
 DROP TABLE IF EXISTS choices;
 CREATE TABLE choices (
-    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,,
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `question_id` INT NOT NULL,
     `name` VARCHAR(225) NOT NULL,
-    `valid` INT NOT NULL
+    `valid` BOOL NOT NULL
 );
 
 INSERT INTO choices (`question_id`, `name`, `valid`) VALUES
