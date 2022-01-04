@@ -28,9 +28,7 @@ services:
       - ./mysql/sql:/docker-entrypoint-initdb.d
       - ./mysql/my.conf:/etc/mysql/conf.d
     environment:
-      MYSQL_DATABASE: quiz_db
-      MYSQL_USER: root
-      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: quiz
       MYSQL_ROOT_PASSWORD: secret
 
   phpmyadmin:
