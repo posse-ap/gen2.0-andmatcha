@@ -1,3 +1,12 @@
+<?php
+$dsn = 'mysql:host=db;dbname=quiz_db;charset=utf8';
+$user = 'root';
+$password = 'secret';
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
