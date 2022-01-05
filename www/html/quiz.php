@@ -1,26 +1,29 @@
 <?php
+
+//ページIDが設定されていなかったらindex.phpにリダイレクトする
+$page_id = filter_input(INPUT_GET, 'id');
+if (!isset($page_id)) {
+    header('Location: ./index.php');
+}
+
+//PDOの設定
 $dsn = 'mysql:host=db;dbname=quiz;charset=utf8';
 $user = 'root';
 $password = 'secret';
-
 $pdo = new PDO($dsn, $user, $password, [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
 ]);
 
-$page_id = filter_input(INPUT_GET, 'id');
-
-//タイトルを取得
+//big_questionsテーブルを取得
 $titles_stmt = $pdo->query("SELECT `name` FROM big_questions");
 $titles = $titles_stmt->fetchAll();
 $title = $titles[$page_id - 1]["name"];
 
-//大問
+//questionsテーブルを取得
 $questions_stmt = $pdo->prepare("SELECT * FROM questions WHERE big_question_id = ?");
 $questions_stmt->execute([$page_id]);
 $questions = $questions_stmt->fetchAll();
-
-
 
 ?>
 
@@ -147,7 +150,7 @@ $questions = $questions_stmt->fetchAll();
         </div>
 
         <!-- クイズ部分 -->
-        <div id="quiz-container">
+        <div class="quiz-container">
             <?php foreach ($questions as $question) :
                 //選択肢
                 $choices_stmt = $pdo->prepare("SELECT * FROM choices WHERE big_question_id = :big_question_id AND question_id = :question_id");

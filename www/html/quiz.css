@@ -366,6 +366,9 @@ h1 {
 }
 
 /* クイズ部分 */
+.quiz-container {
+    width: 100%;
+}
 
 .quiz-box {
     margin: 30px 15px;
@@ -430,9 +433,8 @@ img {
 
 .result-box {
     background-color: #f5f5f5;
-    width: 100%;
     padding: 17px;
-    margin: auto;
+    margin: 0 15px;
     border-radius: 3px;
 }
 
