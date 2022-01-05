@@ -154,15 +154,16 @@ $questions = $questions_stmt->fetchAll();
                 $choices_stmt->execute(['big_question_id' => $page_id, 'question_id' => $question['question_id']]);
                 $choices = $choices_stmt->fetchAll();
             ?>
-                <h1><?= $question['question_id']; ?>.この地名はなんて読む？</h1>
-                <img src="./img/<?= $question['image']; ?>" alt="">
-                <ul>
-                    <!-- 3回回す -->
-                    <?php foreach ($choices as $choice) : ?>
-                        <li id="option<?= $question['question_id']; ?>-<?= $choice['choice_id'] ?>" class="option-item" onclick="clickfunction(<?= $question['question_id']; ?>,<?= $choice['choice_id'] ?>)">${optionsTextArray[<?= $question['question_id']; ?>][<?= $choice['choice_id'] ?>]}</li>
-                    <?php endforeach; ?>
-                </ul>
-
+                <div class="quiz-box">
+                    <h1 class="quiz-title"><?= $question['question_id']; ?>.この地名はなんて読む？</h1>
+                    <img src="./img/<?= $question['image']; ?>" alt="">
+                    <ul class="options-list">
+                        <!-- 3回回す -->
+                        <?php foreach ($choices as $choice) : ?>
+                            <li id="option<?= $question['question_id']; ?>-<?= $choice['choice_id'] ?>" class="option-item" onclick="clickfunction(<?= $question['question_id']; ?>,<?= $choice['choice_id'] ?>)"><?= $choice['name'] ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
             <?php endforeach; ?>
         </div>
         <script src="quiz.js"></script>
