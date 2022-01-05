@@ -174,9 +174,9 @@ $big_question = $big_questions[$page_id - 1];
                         <?php endforeach; ?>
                     </ul>
                 </div>
-                <div id="result_box<?= $question_id; ?>" class="result-box hide">
-                    <h3 id="result_title<?= $question_id; ?>" class="result-title"></h3>
-                    <p id="result_text<?= $question_id; ?>" class="result-text"><?= $question['text']; ?></p>
+                <div id="comment_box<?= $question_id; ?>" class="comment-box hide">
+                    <h3 id="comment_title<?= $question_id; ?>" class="comment-title"></h3>
+                    <p id="comment_text<?= $question_id; ?>" class="comment-text"><?= $question['text']; ?></p>
                 </div>
             <?php endforeach; ?>
         </div>

@@ -431,14 +431,14 @@ img {
 
 /* 回答ボックス */
 
-.result-box {
+.comment-box {
     background-color: #f5f5f5;
     padding: 17px;
     margin: 0 15px;
     border-radius: 3px;
 }
 
-.result-title {
+.comment-title {
     font-size: 16px;
     line-height: 20px;
     font-weight: 600;
@@ -448,7 +448,7 @@ img {
     display: inline-block;
 }
 
-.result-text {
+.comment-text {
     margin: 0;
     padding: 0;
     border: 0;
