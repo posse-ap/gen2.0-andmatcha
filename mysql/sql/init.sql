@@ -64,7 +64,7 @@ CREATE TABLE choices (
 INSERT INTO
     choices (`big_question_id`, `question_id`, `choice_id`, `name`, `valid`)
 VALUES
-    (1, 1, 1 'たかなわ', 1),
+    (1, 1, 1, 'たかなわ', 1),
     (1, 1, 2, 'たかわ', 0),
     (1, 1, 3, 'こうわ', 0),
     (1, 2, 1, 'かめいど', 1),
