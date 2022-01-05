@@ -16,14 +16,9 @@ $pdo = new PDO($dsn, $user, $password, [
 ]);
 
 //big_questionsテーブルを取得
-$titles_stmt = $pdo->query("SELECT `name` FROM big_questions");
-$titles = $titles_stmt->fetchAll();
-$title = $titles[$page_id - 1]["name"];
-
-//questionsテーブルを取得
-$questions_stmt = $pdo->prepare("SELECT * FROM questions WHERE big_question_id = ?");
-$questions_stmt->execute([$page_id]);
-$questions = $questions_stmt->fetchAll();
+$big_questions_stmt = $pdo->query("SELECT * FROM big_questions");
+$big_questions = $big_questions_stmt->fetchAll();
+$big_question = $big_questions[$page_id - 1];
 
 ?>
 
@@ -34,9 +29,9 @@ $questions = $questions_stmt->fetchAll();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title; ?></title>
+    <title><?= $big_question['title']; ?></title>
     <link rel="stylesheet" href="quiz.css">
-    <link rel="shortcut icon" href="img/favicon.ico" />
+    <link rel="shortcut icon" href="img/favicon.ico">
 </head>
 
 <body>
@@ -108,7 +103,7 @@ $questions = $questions_stmt->fetchAll();
 
     <!-- メインコンテンツ -->
     <div class="content-wrapper">
-        <h1><?= $title; ?></h1>
+        <h1><?= $big_question['title']; ?></h1>
         <!-- ユーザー情報 -->
         <div class="userinfo-box">
             <a href="https://kuizy.net/user/kuizy_net"><img src="img/usericon.jpg" alt="user icon" class="user-icon"></a>
@@ -116,9 +111,9 @@ $questions = $questions_stmt->fetchAll();
                 <a href="https://kuizy.net/user/kuizy_net" class="username">@kuizy_net</a>
             </div>
         </div>
-        <!-- 「東京」タグ -->
+        <!-- タグ -->
         <div class="tag-box">
-            <a href="https://kuizy.net/tag/tokyo" class="tag-text">東京</a>
+            <a href="<?= $big_question['tag_link']; ?>" class="tag-text"><?= $big_question['tag']; ?></a>
         </div>
         <!-- クイズに関する統計情報 -->
         <p id="user" class="user-score">ビュー数<span class="count">000</span>平均正答率<span class="count">000%</span>全問正解率<span class="count">000%</span></p>
@@ -151,35 +146,47 @@ $questions = $questions_stmt->fetchAll();
 
         <!-- クイズ部分 -->
         <div class="quiz-container">
-            <?php foreach ($questions as $question) :
-                //選択肢
+            <?php
+            //questionsテーブルを取得
+            $questions_stmt = $pdo->prepare("SELECT * FROM questions WHERE big_question_id = ?");
+            $questions_stmt->execute([$page_id]);
+            $questions = $questions_stmt->fetchAll();
+
+            foreach ($questions as $question) :
+                $question_id = $question['question_id']; //1-10
+                //この設問の選択肢を取得(choicesテーブル)
                 $choices_stmt = $pdo->prepare("SELECT * FROM choices WHERE big_question_id = :big_question_id AND question_id = :question_id");
-                $choices_stmt->execute(['big_question_id' => $page_id, 'question_id' => $question['question_id']]);
+                $choices_stmt->execute(['big_question_id' => $page_id, 'question_id' => $question_id]);
                 $choices = $choices_stmt->fetchAll();
+                //1,2,3の配列を1問ごとにシャッフル->選択肢の順序を並び替え
+                $random = array(1, 2, 3);
+                shuffle($random);
             ?>
                 <div class="quiz-box">
-                    <h1 class="quiz-title"><?= $question['question_id']; ?>.この地名はなんて読む？</h1>
-                    <img src="./img/<?= $question['image']; ?>" alt="">
-                    <ul id="choices<?= $question['question_id']; ?>" class="choices-list">
-                        <!-- 3回回す -->
-                        <?php foreach ($choices as $choice) : ?>
-                            <li id="choice<?= $question['question_id']; ?>_<?= $choice['choice_id'] ?>" class="choice-item" onclick="clickfunction(<?= $question['question_id']; ?>,<?= $choice['choice_id']; ?>, <?= $choice['valid']; ?>)"><?= $choice['name'] ?></li>
+                    <h1 class="quiz-title"><?= $question_id; ?>.この地名はなんて読む？</h1>
+                    <img src="./img/<?= $question['image']; ?>">
+                    <ul id="choices<?= $question_id; ?>" class="choices-list">
+                        <?php foreach ($choices as $choice) :
+                            $choice_id = $random[$choice['choice_id'] - 1]; //1,2,3
+                            $choice = $choices[$choice_id - 1]; //シャッフルした後のchoiceを再代入
+                        ?>
+                            <li id="choice<?= $question_id; ?>_<?= $choice_id; ?>" class="choice-item" onclick="clickfunction(<?= $question_id; ?>,<?= $choice_id; ?>, <?= $choice['valid']; ?>)"><?= $choice['name']; ?></li>
                         <?php endforeach; ?>
                     </ul>
                 </div>
-                <div id="result_box<?= $question['question_id']; ?>" class="result-box hide">
-                    <h3 id="result_title<?= $question['question_id']; ?>" class="result-title"></h3>
-                    <p id="result_text<?= $question['question_id']; ?>" class="result-text"><?= $question['text']; ?></p>
+                <div id="result_box<?= $question_id; ?>" class="result-box hide">
+                    <h3 id="result_title<?= $question_id; ?>" class="result-title"></h3>
+                    <p id="result_text<?= $question_id; ?>" class="result-text"><?= $question['text']; ?></p>
                 </div>
             <?php endforeach; ?>
         </div>
-        <script src="quiz.js"></script>
 
         <!-- ページ末尾 -->
         <div class="contact">
             <p>クイズに間違いを発見された方は<a href="https://www.google.com/">こちら</a>からご報告ください。</p>
         </div>
     </div>
+    <script src="quiz.js"></script>
 </body>
 
 </html>
