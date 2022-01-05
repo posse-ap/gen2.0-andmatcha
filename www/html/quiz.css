@@ -392,7 +392,7 @@ img {
     width: 100%;
 }
 
-.options-list {
+.choices-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -400,7 +400,7 @@ img {
     width: 100%;
 }
 
-.option-item {
+.choice-item {
     display: block;
     box-sizing: border-box;
     border: 1px solid #ebebeb;
@@ -416,12 +416,12 @@ img {
 
 /* 回答後の選択肢 */
 
-.clicked-option {
+.clicked-choice {
     color: #fff;
     background-color: #ff5128;
 }
 
-.correct-option {
+.valid-choice {
     color: #fff;
     background-color: #287dff;
 }
@@ -453,12 +453,6 @@ img {
     font-size: 100%;
 }
 
-/* 回答後、選択肢のクリック無効化 */
-
-.cannot-click {
-    pointer-events: none;
-}
-
 /* コンタクトページへのリンク */
 
 .contact {
@@ -466,4 +460,9 @@ img {
     margin: 0 15px;
     font-size: 12px;
     color: #888888;
+}
+
+
+.hide {
+    display: none;
 }
