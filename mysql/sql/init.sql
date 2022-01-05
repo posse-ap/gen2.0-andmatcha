@@ -8,14 +8,16 @@ DROP TABLE IF EXISTS big_questions;
 
 CREATE TABLE big_questions (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` TEXT NOT NULL
+    `title` TEXT NOT NULL,
+    `tag` VARCHAR(225) NOT NULL,
+    `tag_link` VARCHAR(225) NOT NULL
 );
 
 INSERT INTO
-    big_questions (`name`)
+    big_questions (`title`, `tag`, `tag_link`)
 VALUES
-    ('ガチで東京の人しか解けない！#東京の難読地名クイズ'),
-    ('広島県民なら解けて当然？ #広島県の難読地名クイズ');
+    ('ガチで東京の人しか解けない！#東京の難読地名クイズ', '東京', 'https://kuizy.net/tag/tokyo'),
+    ('広島県民なら解けて当然？ #広島県の難読地名クイズ', '広島', 'https://kuizy.net/tag/hiroshima');
 
 DROP TABLE IF EXISTS questions;
 
