@@ -157,12 +157,16 @@ $questions = $questions_stmt->fetchAll();
                 <div class="quiz-box">
                     <h1 class="quiz-title"><?= $question['question_id']; ?>.この地名はなんて読む？</h1>
                     <img src="./img/<?= $question['image']; ?>" alt="">
-                    <ul class="options-list">
+                    <ul id="choices<?= $question['question_id']; ?>" class="choices-list">
                         <!-- 3回回す -->
                         <?php foreach ($choices as $choice) : ?>
-                            <li id="option<?= $question['question_id']; ?>-<?= $choice['choice_id'] ?>" class="option-item" onclick="clickfunction(<?= $question['question_id']; ?>,<?= $choice['choice_id'] ?>)"><?= $choice['name'] ?></li>
+                            <li id="choice<?= $question['question_id']; ?>_<?= $choice['choice_id'] ?>" class="choice-item" onclick="clickfunction(<?= $question['question_id']; ?>,<?= $choice['choice_id']; ?>, <?= $choice['valid']; ?>)"><?= $choice['name'] ?></li>
                         <?php endforeach; ?>
                     </ul>
+                </div>
+                <div id="result_box<?= $question['question_id']; ?>" class="result-box hide">
+                    <h3 id="result_title<?= $question['question_id']; ?>" class="result-title"></h3>
+                    <p id="result_text<?= $question['question_id']; ?>" class="result-text"><?= $question['text']; ?></p>
                 </div>
             <?php endforeach; ?>
         </div>
