@@ -23,32 +23,33 @@ CREATE TABLE questions (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `big_question_id` INT NOT NULL,
     `question_id` INT NOT NULL,
-    `image` VARCHAR(225) NOT NULL
+    `image` VARCHAR(225) NOT NULL,
+    `text` VARCHAR(225) NOT NULL
 );
 
 INSERT INTO
-    questions (`big_question_id`, `question_id`, `image`)
+    questions (`big_question_id`, `question_id`, `image`, `text`)
 VALUES
-    (1, 1, 'tokyo1.png'),
-    (1, 2, 'tokyo2.png'),
-    (1, 3, 'tokyo3.png'),
-    (1, 4, 'tokyo4.png'),
-    (1, 5, 'tokyo5.png'),
-    (1, 6, 'tokyo6.png'),
-    (1, 7, 'tokyo7.png'),
-    (1, 8, 'tokyo8.png'),
-    (1, 9, 'tokyo9.png'),
-    (1, 10, 'tokyo10.png'),
-    (2, 1, 'hiroshima1.png'),
-    (2, 2, 'hiroshima2.png'),
-    (2, 3, 'hiroshima3.png'),
-    (2, 4, 'hiroshima4.png'),
-    (2, 5, 'hiroshima5.png'),
-    (2, 6, 'hiroshima6.png'),
-    (2, 7, 'hiroshima7.png'),
-    (2, 8, 'hiroshima8.png'),
-    (2, 9, 'hiroshima9.png'),
-    (2, 10, 'hiroshima10.png');
+    (1, 1, 'tokyo1.png', '正解は「たかなわ」です！'),
+    (1, 2, 'tokyo2.png', '正解は「かめいど」です！'),
+    (1, 3, 'tokyo3.png', '正解は「こうじまち」です！'),
+    (1, 4, 'tokyo4.png', '正解は「おなりもん」です！'),
+    (1, 5, 'tokyo5.png', '正解は「とどろき」です！'),
+    (1, 6, 'tokyo6.png', '正解は「しゃくじい」です！'),
+    (1, 7, 'tokyo7.png', '正解は「ぞうしき」です！'),
+    (1, 8, 'tokyo8.png', '正解は「おかちまち」です！'),
+    (1, 9, 'tokyo9.png', '江戸川区にあります。'),
+    (1, 10, 'tokyo10.png', '正解は「こぐれ」です！'),
+    (2, 1, 'hiroshima1.png', '広島市南区。'),
+    (2, 2, 'hiroshima2.png', '尾道市。'),
+    (2, 3, 'hiroshima3.png', '広島市中区'),
+    (2, 4, 'hiroshima4.png', '尾道市。'),
+    (2, 5, 'hiroshima5.png', '尾道市。'),
+    (2, 6, 'hiroshima6.png', '三次市。'),
+    (2, 7, 'hiroshima7.png', '三次市。'),
+    (2, 8, 'hiroshima8.png', '神石郡神石高原町。'),
+    (2, 9, 'hiroshima9.png', '広島市東区。'),
+    (2, 10, 'hiroshima10.png', '山県郡北広島町。');
 
 DROP TABLE IF EXISTS choices;
 
