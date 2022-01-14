@@ -4,7 +4,7 @@ CREATE DATABASE webapp;
 
 USE webapp;
 
-DROP TABLE IF EXISTS ;
+DROP TABLE IF EXISTS study_records;
 
 CREATE TABLE study_records (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
