@@ -24,13 +24,13 @@ DROP TABLE IF EXISTS questions;
 CREATE TABLE questions (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `big_question_id` INT NOT NULL,
-    `question_id` INT NOT NULL,
+    `quiz_number` INT NOT NULL,
     `image` VARCHAR(225) NOT NULL,
     `text` VARCHAR(225) NOT NULL
 );
 
 INSERT INTO
-    questions (`big_question_id`, `question_id`, `image`, `text`)
+    questions (`big_question_id`, `quiz_number`, `image`, `text`)
 VALUES
     (1, 1, 'tokyo1.png', '正解は「たかなわ」です！'),
     (1, 2, 'tokyo2.png', '正解は「かめいど」です！'),
@@ -58,14 +58,14 @@ DROP TABLE IF EXISTS choices;
 CREATE TABLE choices (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `big_question_id` INT NOT NULL,
-    `question_id` INT NOT NULL,
+    `quiz_number` INT NOT NULL,
     `choice_id` INT NOT NULL,
     `name` VARCHAR(225) NOT NULL,
     `valid` BOOL NOT NULL
 );
 
 INSERT INTO
-    choices (`big_question_id`, `question_id`, `choice_id`, `name`, `valid`)
+    choices (`big_question_id`, `quiz_number`, `choice_id`, `name`, `valid`)
 VALUES
     (1, 1, 1, 'たかなわ', 1),
     (1, 1, 2, 'たかわ', 0),

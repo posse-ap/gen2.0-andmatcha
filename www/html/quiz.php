@@ -153,30 +153,30 @@ $big_question = $big_questions[$page_id - 1];
             $questions = $questions_stmt->fetchAll();
 
             foreach ($questions as $question) :
-                $question_id = $question['question_id']; //1-10
+                $quiz_number = $question['quiz_number']; //1-10
                 //この設問の選択肢を取得(choicesテーブル)
-                $choices_stmt = $pdo->prepare("SELECT * FROM choices WHERE big_question_id = :big_question_id AND question_id = :question_id");
-                $choices_stmt->execute(['big_question_id' => $page_id, 'question_id' => $question_id]);
+                $choices_stmt = $pdo->prepare("SELECT * FROM choices WHERE big_question_id = :big_question_id AND quiz_number = :quiz_number");
+                $choices_stmt->execute(['big_question_id' => $page_id, 'quiz_number' => $quiz_number]);
                 $choices = $choices_stmt->fetchAll();
                 //1,2,3の配列を1問ごとにシャッフル->選択肢の順序を並び替え
                 $random = array(1, 2, 3);
                 shuffle($random);
             ?>
                 <div class="quiz-box">
-                    <h1 class="quiz-title"><?= $question_id; ?>.この地名はなんて読む？</h1>
+                    <h1 class="quiz-title"><?= $quiz_number; ?>.この地名はなんて読む？</h1>
                     <img src="./img/<?= $question['image']; ?>">
-                    <ul id="choices<?= $question_id; ?>" class="choices-list">
+                    <ul id="choices<?= $quiz_number; ?>" class="choices-list">
                         <?php foreach ($choices as $choice) :
                             $choice_id = $random[$choice['choice_id'] - 1]; //1,2,3
                             $choice = $choices[$choice_id - 1]; //シャッフルした後のchoiceを再代入
                         ?>
-                            <li id="choice<?= $question_id; ?>_<?= $choice_id; ?>" class="choice-item" onclick="clickfunction(<?= $question_id; ?>,<?= $choice_id; ?>, <?= $choice['valid']; ?>)"><?= $choice['name']; ?></li>
+                            <li id="choice<?= $quiz_number; ?>_<?= $choice_id; ?>" class="choice-item" onclick="clickfunction(<?= $quiz_number; ?>,<?= $choice_id; ?>, <?= $choice['valid']; ?>)"><?= $choice['name']; ?></li>
                         <?php endforeach; ?>
                     </ul>
                 </div>
-                <div id="comment_box<?= $question_id; ?>" class="comment-box hide">
-                    <h3 id="comment_title<?= $question_id; ?>" class="comment-title"></h3>
-                    <p id="comment_text<?= $question_id; ?>" class="comment-text"><?= $question['text']; ?></p>
+                <div id="comment_box<?= $quiz_number; ?>" class="comment-box hide">
+                    <h3 id="comment_title<?= $quiz_number; ?>" class="comment-title"></h3>
+                    <p id="comment_text<?= $quiz_number; ?>" class="comment-text"><?= $question['text']; ?></p>
                 </div>
             <?php endforeach; ?>
         </div>
