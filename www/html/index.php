@@ -1,14 +1,11 @@
 <?php
 
-$dsn = 'mysql:host=db;dbname=webapp;charset=utf8';
-$user = 'root';
-$password = 'secret';
-
 try {
+    require('../app/db-settings.php');
+    require('./top-page');
+?>
 
-    $db = new PDO($dsn, $user, $password);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo '接続成功';
+<?php
 
 } catch (PDOException $e) {
 
