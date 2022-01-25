@@ -2,7 +2,7 @@
 
 try {
     require('../app/db-settings.php');
-    require('./top-page');
+    require('./top-page.php');
 ?>
 
 <?php
