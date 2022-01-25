@@ -152,8 +152,8 @@ $big_question = $big_questions[$page_id - 1];
             $questions_stmt->execute([$page_id]);
             $questions = $questions_stmt->fetchAll();
 
-            $quiz_number = 1; //問題番号　初期値: 1
             foreach ($questions as $question) :
+                $quiz_number = $question['quiz_number']; //1-10
                 //この設問の選択肢を取得(choicesテーブル)
                 $choices_stmt = $pdo->prepare("SELECT * FROM choices WHERE big_question_id = :big_question_id AND quiz_number = :quiz_number");
                 $choices_stmt->execute(['big_question_id' => $page_id, 'quiz_number' => $quiz_number]);
@@ -178,10 +178,7 @@ $big_question = $big_questions[$page_id - 1];
                     <h3 id="comment_title<?= $quiz_number; ?>" class="comment-title"></h3>
                     <p id="comment_text<?= $quiz_number; ?>" class="comment-text"><?= $question['text']; ?></p>
                 </div>
-            <?php
-                $quiz_number++;
-            endforeach;
-            ?>
+            <?php endforeach; ?>
         </div>
 
         <!-- ページ末尾 -->
