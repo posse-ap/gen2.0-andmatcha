@@ -1,5 +1,12 @@
 <?php
 
+// TODO キーワードの整理　question, quiz -> quizに統一したい
+// TODO 機能、パーツごとにファイルを切り分ける
+// TODO 正解数カウント機能 正解数に応じてページ末尾にコメントを付す
+
+// 問題番号(quiz_number)は1始まり、選択肢番号(choice_number)は0始まり ...問題はDBのid(1始まり)を使う、選択肢は1度配列(0始まり)に直すため
+// 任意の問題数、選択肢数に対応 ...このためにはquiz_numberは必要と考えた
+
 //ページIDが設定されていなかったらindex.phpにリダイレクトする
 $page_id = filter_input(INPUT_GET, 'id');
 if (!isset($page_id)) {
@@ -152,33 +159,41 @@ $big_question = $big_questions[$page_id - 1];
             $questions_stmt->execute([$page_id]);
             $questions = $questions_stmt->fetchAll();
 
+            $quiz_number = 1;
             foreach ($questions as $question) :
-                $quiz_number = $question['quiz_number']; //1-10
                 //この設問の選択肢を取得(choicesテーブル)
                 $choices_stmt = $pdo->prepare("SELECT * FROM choices WHERE big_question_id = :big_question_id AND quiz_number = :quiz_number");
                 $choices_stmt->execute(['big_question_id' => $page_id, 'quiz_number' => $quiz_number]);
                 $choices = $choices_stmt->fetchAll();
-                //1,2,3の配列を1問ごとにシャッフル->選択肢の順序を並び替え
-                $random = array(1, 2, 3);
-                shuffle($random);
             ?>
                 <div class="quiz-box">
                     <h1 class="quiz-title"><?= $quiz_number; ?>.この地名はなんて読む？</h1>
                     <img src="./img/<?= $question['image']; ?>">
                     <ul id="choices<?= $quiz_number; ?>" class="choices-list">
-                        <?php foreach ($choices as $choice) :
-                            $choice_id = $random[$choice['choice_id'] - 1]; //1,2,3
-                            $choice = $choices[$choice_id - 1]; //シャッフルした後のchoiceを再代入
+                        <?php
+                        //1,2,3の配列を1問ごとにシャッフル->選択肢の順序を並び替え
+                        $new_choice_numbers = range(0, count($choices) - 1);
+                        shuffle($new_choice_numbers);
+                        $initial_choice_number = 0;
+                        foreach ($choices as $choice) :
+                            $choice_number = $new_choice_numbers[$initial_choice_number];
+                            $choice = $choices[$choice_number]; //シャッフルした後のchoiceを再代入
                         ?>
-                            <li id="choice<?= $quiz_number; ?>_<?= $choice_id; ?>" class="choice-item" onclick="clickfunction(<?= $quiz_number; ?>,<?= $choice_id; ?>, <?= $choice['valid']; ?>)"><?= $choice['name']; ?></li>
-                        <?php endforeach; ?>
+                            <li id="choice<?= $quiz_number; ?>_<?= $choice_number; ?>" class="choice-item" onclick="clickfunction(<?= $quiz_number; ?>,<?= $choice_number; ?>, <?= $choice['valid']; ?>)"><?= $choice['name']; ?></li>
+                        <?php
+                            $initial_choice_number++;
+                        endforeach;
+                        ?>
                     </ul>
                 </div>
                 <div id="comment_box<?= $quiz_number; ?>" class="comment-box hide">
                     <h3 id="comment_title<?= $quiz_number; ?>" class="comment-title"></h3>
                     <p id="comment_text<?= $quiz_number; ?>" class="comment-text"><?= $question['text']; ?></p>
                 </div>
-            <?php endforeach; ?>
+            <?php
+                $quiz_number++;
+            endforeach;
+            ?>
         </div>
 
         <!-- ページ末尾 -->
