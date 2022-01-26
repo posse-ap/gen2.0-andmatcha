@@ -188,7 +188,7 @@ $big_question = $big_questions[$page_id - 1];
                 </div>
                 <div id="comment_box<?= $quiz_number; ?>" class="comment-box hide">
                     <h3 id="comment_title<?= $quiz_number; ?>" class="comment-title"></h3>
-                    <p id="comment_text<?= $quiz_number; ?>" class="comment-text"><?= $question['text']; ?></p>
+                    <p id="comment_text<?= $quiz_number; ?>" class="comment-text"><?= $question['comment']; ?></p>
                 </div>
             <?php
                 $quiz_number++;

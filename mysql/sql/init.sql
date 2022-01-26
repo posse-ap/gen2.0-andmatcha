@@ -26,11 +26,11 @@ CREATE TABLE questions (
     `big_question_id` INT NOT NULL,
     `quiz_number` INT NOT NULL,
     `image` VARCHAR(225) NOT NULL,
-    `text` VARCHAR(225) NOT NULL
+    `comment` VARCHAR(225) NOT NULL
 );
 
 INSERT INTO
-    questions (`big_question_id`, `quiz_number`, `image`, `text`)
+    questions (`big_question_id`, `quiz_number`, `image`, `comment`)
 VALUES
     (1, 1, 'tokyo1.png', '正解は「たかなわ」です！'),
     (1, 2, 'tokyo2.png', '正解は「かめいど」です！'),
