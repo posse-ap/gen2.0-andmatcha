@@ -12,10 +12,10 @@ CREATE TABLE big_questions (
 );
 
 INSERT INTO
-    big_questions `title`
+    big_questions (`title`)
 VALUES
-    'ガチで東京の人しか解けない！#東京の難読地名クイズ',
-    '広島県民なら解けて当然？ #広島県の難読地名クイズ';
+    ('ガチで東京の人しか解けない！#東京の難読地名クイズ'),
+    ('広島県民なら解けて当然？ #広島県の難読地名クイズ');
 
 DROP TABLE IF EXISTS questions;
 
@@ -54,7 +54,7 @@ DROP TABLE IF EXISTS choices;
 
 CREATE TABLE choices (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `big_question_id` INT NOT NULL,
+    `question_id` INT NOT NULL,
     `name` VARCHAR(225) NOT NULL,
     `valid` BOOL NOT NULL
 );
