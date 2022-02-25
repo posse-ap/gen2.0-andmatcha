@@ -54,8 +54,8 @@ $questions = $questions_stmt->fetchAll();
                     <ul id="choices<?= $question_id; ?>" class="choices-list">
 
                         <!-- 選択肢に関するループ -->
-                        <?php foreach ($choices as  $index => $choice) : ?>
-                            <li id="choice<?= $question_id; ?>_<?= $index + 1; ?>" class="choice-item" style="order: <?= $order[$index]; ?>;" onclick="clickfunction(<?= $question_id; ?>,<?= $index + 1; ?>, <?= $choice['valid']; ?>)">
+                        <?php foreach ($choices as  $choice_index => $choice) : ?>
+                            <li id="choice<?= $question_id; ?>_<?= $choice_index + 1; ?>" class="choice-item" style="order: <?= $order[$choice_index]; ?>;" onclick="clickfunction(<?= $question_id; ?>,<?= $choice_index + 1; ?>, <?= $choice['valid']; ?>)">
                                 <?= $choice['name']; ?>
                             </li>
                         <?php endforeach; ?>
