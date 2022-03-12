@@ -1,3 +1,19 @@
+<?php
+
+$month_today = '01';
+
+// 合計学習時間
+$total_stmt = $db->prepare("SELECT SUM(`hours`) AS total FROM study_records");
+$total_stmt->execute();
+$total = $total_stmt->fetch()['total'];
+
+//日毎の学習時間
+$daily_stmt = $db->prepare("SELECT SUM(`hours`) AS `sum` FROM study_records WHERE DATE_FORMAT(`date`, '%m') = ? GROUP BY `date`");
+$daily_stmt->execute([$month_today]);
+$daily = $daily_stmt->fetchAll();
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
