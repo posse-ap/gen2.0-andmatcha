@@ -1,16 +1,32 @@
 <?php
 
-$month_today = '01';
+$this_month = '202201';
+$today = '20220117';
 
 // 合計学習時間
 $total_stmt = $db->prepare("SELECT SUM(`hours`) AS total FROM study_records");
 $total_stmt->execute();
 $total = $total_stmt->fetch()['total'];
 
-//日毎の学習時間
-$daily_stmt = $db->prepare("SELECT SUM(`hours`) AS `sum` FROM study_records WHERE DATE_FORMAT(`date`, '%m') = ? GROUP BY `date`");
-$daily_stmt->execute([$month_today]);
-$daily = $daily_stmt->fetchAll();
+// 今月の学習時間
+$this_month_stmt = $db->prepare("SELECT SUM(`hours`) AS `sum` FROM study_records WHERE DATE_FORMAT(`date`, '%Y%m') = ?");
+$this_month_stmt->execute([$this_month]);
+$this_month_sum = $this_month_stmt->fetch()['sum'];
+
+// 今日の学習時間
+$today_stmt = $db->prepare("SELECT SUM(`hours`) AS `sum` FROM study_records WHERE DATE_FORMAT(`date`, '%Y%m%d') = ?");
+$today_stmt->execute([$today]);
+$today_sum = $today_stmt->fetch()['sum'];
+
+//日毎の学習時間（棒グラフ用）
+$daily_stmt = $db->prepare("SELECT SUM(`hours`) AS `sum` FROM study_records WHERE DATE_FORMAT(`date`, '%Y%m') = ? GROUP BY DATE_FORMAT(`date`, '%Y%m%d')");
+$daily_stmt->execute([$this_month]);
+$daily_sum = $daily_stmt->fetchAll();
+
+printf('合計学習時間: %d時間, 今月の学習時間: %d時間, 今日の学習時間: %d時間', $total, $this_month_sum, $today_sum);
+foreach($daily_sum as $value) {
+  print_r($value['sum']);
+}
 
 ?>
 
