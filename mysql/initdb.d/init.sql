@@ -53,12 +53,20 @@ CREATE TABLE studied_langs (
   `lang_id` INT
 );
 
+DROP TABLE IF EXISTS studied_contents;
+
+CREATE TABLE studied_contents (
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `study_record_id` INT NOT NULL,
+  `content_id` INT
+);
+
 -- ダミーデータ 15,27日は0時間
 INSERT INTO
   study_records (`date`, `hours`)
 VALUES
-  ('2022-01-01', 6),
-  ('2022-01-02', 2),
+  ('2022-01-01', 8),
+  ('2022-01-02', 6),
   ('2022-01-03', 1),
   ('2022-01-04', 3),
   ('2022-01-05', 1),
@@ -92,15 +100,9 @@ INSERT INTO
 VALUES
   (1, 3),
   (1, 5),
+  (2, 2),
+  (2, 3),
   (2, 1);
-
-DROP TABLE IF EXISTS studied_contents;
-
-CREATE TABLE studied_contents (
-  `id ` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `study_record_id` INT NOT NULL,
-  `content_id` INT
-);
 
 INSERT INTO
   studied_contents (`study_record_id`, `content_id`)
