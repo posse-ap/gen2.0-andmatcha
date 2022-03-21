@@ -19,9 +19,34 @@
 
 <body>
   <div class="modal">
-    <div class="modal__container">
-
-    </div>
+    <form action="" class="modal__container">
+      <div class="modal__container__contents">
+        <div class="modal__container__contents__area">
+          <div class="modal__container__contents__area__box">
+            <p class="modal__container__contents__area__box__title">学習日</p>
+            <input type="date" class="modal__container__contents__area__box__space">
+          </div>
+          <div class="modal__container__contents__area__box">
+            <p class="modal__container__contents__area__box__title">学習コンテンツ(複数選択可)</p>
+            <div class="modal__container__contents__area__box__checkboxes">
+              <?php foreach ($contents as $content) : ?>
+                <label><input type="checkbox"><?= $content['name']; ?></label>
+              <?php endforeach; ?>
+            </div>
+          </div>
+          <div class="modal__container__contents__area__box">
+            <p class="modal__container__contents__area__box__title">学習言語(複数選択可)</p>
+            <div class="modal__container__contents__area__box__checkboxes">
+              <?php foreach ($langs as $lang) : ?>
+                <label><input type="checkbox"><?= $lang['name']; ?></label>
+              <?php endforeach; ?>
+            </div>
+          </div>
+        </div>
+        <div class="modal__container__contents__area"></div>
+      </div>
+      <input type="submit" class="modal__container__btn" value="記録・投稿"></input>
+    </form>
   </div>
 
   <header class="header">
