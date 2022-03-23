@@ -20,6 +20,11 @@
 <body>
   <div class="modal">
     <form action="" class="modal__container">
+      <div class="modal__container__close_btn">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </div>
       <div class="modal__container__contents">
         <div class="modal__container__contents__area">
           <div class="modal__container__contents__area__box">
@@ -30,7 +35,14 @@
             <p class="modal__container__contents__area__box__title">学習コンテンツ(複数選択可)</p>
             <div class="modal__container__contents__area__box__checkboxes">
               <?php foreach ($contents as $content) : ?>
-                <label><input type="checkbox"><?= $content['name']; ?></label>
+                <label>
+                  <div class="modal__container__contents__area__box__checkboxes__icon">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                  <input type="checkbox"><?= $content['name']; ?>
+                </label>
               <?php endforeach; ?>
             </div>
           </div>
@@ -38,12 +50,36 @@
             <p class="modal__container__contents__area__box__title">学習言語(複数選択可)</p>
             <div class="modal__container__contents__area__box__checkboxes">
               <?php foreach ($langs as $lang) : ?>
-                <label><input type="checkbox"><?= $lang['name']; ?></label>
+                <label>
+                  <div class="modal__container__contents__area__box__checkboxes__icon">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                  <input type="checkbox"><?= $lang['name']; ?>
+                </label>
               <?php endforeach; ?>
             </div>
           </div>
         </div>
-        <div class="modal__container__contents__area"></div>
+        <div class="modal__container__contents__area">
+          <div class="modal__container__contents__area__box">
+            <p class="modal__container__contents__area__box__title">学習時間</p>
+            <input type="number" min="0" max="24" class="modal__container__contents__area__box__space">
+          </div>
+          <div class="modal__container__contents__area__box modal__container__contents__area__box_t">
+            <p class="modal__container__contents__area__box__title">Twitter用コメント</p>
+            <textarea class="modal__container__contents__area__box__textarea"></textarea>
+            <div class="modal__container__contents__area__box__tw">
+              <div class="modal__container__contents__area__box__checkboxes__icon">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <p>Twitterに自動投稿する</p>
+            </div>
+          </div>
+        </div>
       </div>
       <input type="submit" class="modal__container__btn" value="記録・投稿"></input>
     </form>

@@ -30,6 +30,22 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+.modal__container__close_btn {
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: #f5f5f8;
+  color: #666;
+  z-index: 20;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.modal__container__close_btn svg {
+  width: 100%;
+  height: 100%;
+}
 .modal__container__contents {
   width: 100%;
   height: 100%;
@@ -47,6 +63,11 @@ body {
 .modal__container__contents__area__box {
   width: 100%;
 }
+.modal__container__contents__area__box_t {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 .modal__container__contents__area__box__title {
   font-size: 0.8rem;
   font-weight: 600;
@@ -57,17 +78,64 @@ body {
   margin: 8px 0;
   background-color: #f5f5f8;
   border-radius: 8px;
+  padding: 0 10px;
+}
+.modal__container__contents__area__box__textarea {
+  width: 100%;
+  flex-grow: 2;
+  margin: 8px 0;
+  background-color: #f5f5f8;
+  border-radius: 8px;
+  padding: 0 10px;
+}
+.modal__container__contents__area__box__tw {
+  display: flex;
+  font-size: 0.8rem;
+  align-items: center;
+}
+.modal__container__contents__area__box__tw .modal__container__contents__area__box__checkboxes__icon {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+.modal__container__contents__area__box__tw p {
+  margin: 0 5px;
 }
 .modal__container__contents__area__box__checkboxes {
   width: 100%;
 }
 .modal__container__contents__area__box__checkboxes label {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  text-align: center;
+  line-height: 250%;
+  padding: 0 10px;
+  margin: 5px 2px;
+  border-radius: 20px;
   background-color: #f5f5f8;
+}
+.modal__container__contents__area__box__checkboxes label input {
+  display: none;
+}
+.modal__container__contents__area__box__checkboxes__icon {
+  display: inline-block;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-right: 3px;
+  color: #fff;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+.modal__container__contents__area__box__checkboxes__icon svg {
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
 }
 .modal__container__btn {
   max-width: 450px;
   width: 50%;
   height: 48px;
+  min-height: 48px;
   max-width: 360px;
   min-width: 270px;
   color: #fff;
