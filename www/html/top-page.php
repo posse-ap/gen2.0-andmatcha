@@ -18,9 +18,9 @@
 </head>
 
 <body>
-  <div class="modal">
+  <div class="modal" id="modal">
     <form action="" class="modal__container">
-      <div class="modal__container__close_btn">
+      <div class="modal__container__close_btn" id="closeBtn">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
@@ -92,7 +92,7 @@
     <p class="header__week">
       4th week
     </p>
-    <button class="header__button">
+    <button class="header__btn" id="openBtn">
       記録・投稿
     </button>
   </header>
@@ -116,28 +116,32 @@
           <p class="main__container__area_hours__box__unit">hours</p>
         </div>
       </div>
-      <div class="main__container__area_bar_chart main__container__area_tile"></div>
+      <div class="main__container__area_bar_chart main__container__area_tile" id="barChart"></div>
     </div>
-    <div class="main__container">
-      <div class="main__container__area_doughnut_chart main__container__area_tile">
+    <div class="main__container main__container_h">
+      <div class="main__container__area_donut_chart main__container__area_tile">
         <h2>学習言語</h2>
-        <div class="main__container__area_doughnut_chart__box"></div>
+        <div class="main__container__area_donut_chart__box">
+          <div id="langsChart"></div>
+        </div>
         <ul>
           <?php foreach ($langs as $lang) : ?>
             <li>
-              <div class="main__container__area_doughnut_chart__list_circle"></div>
+              <div class="main__container__area_donut_chart__list_circle"></div>
               <?= $lang['name']; ?>
             </li>
           <?php endforeach; ?>
         </ul>
       </div>
-      <div class="main__container__area_doughnut_chart main__container__area_tile">
+      <div class="main__container__area_donut_chart main__container__area_tile">
         <h2>学習コンテンツ</h2>
-        <div class="main__container__area_doughnut_chart__box"></div>
+        <div class="main__container__area_donut_chart__box">
+          <div id="contentsChart"></div>
+        </div>
         <ul>
           <?php foreach ($contents as $content) : ?>
             <li>
-              <div class="main__container__area_doughnut_chart__list_circle"></div>
+              <div class="main__container__area_donut_chart__list_circle"></div>
               <?= $content['name']; ?>
             </li>
           <?php endforeach; ?>
@@ -145,6 +149,25 @@
       </div>
     </div>
   </div>
+
+  <footer class="footer">
+    <div class="footer__container">
+      <button class="footer__container__btn">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+      </button>
+      <p class="footer__container__date">2022年 1月</p>
+      <button class="footer__container__btn">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>

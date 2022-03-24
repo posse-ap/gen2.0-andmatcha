@@ -5,6 +5,7 @@ body {
 .modal {
   width: 100vw;
   height: 100vh;
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -41,6 +42,7 @@ body {
   position: absolute;
   top: 20px;
   right: 20px;
+  cursor: pointer;
 }
 .modal__container__close_btn svg {
   width: 100%;
@@ -169,7 +171,7 @@ body {
   color: #97b9d1;
   margin-right: auto;
 }
-.header__button {
+.header__btn {
   width: 200px;
   height: 48px;
   border-radius: 48px;
@@ -177,11 +179,14 @@ body {
   color: #fff;
   box-shadow: 0 0 4px #3ccfff;
   background: linear-gradient(to right, #0f71bc, #3ccfff);
+  cursor: pointer;
 }
 
 .main {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 64px 8% 0;
   padding-top: 20px;
 }
@@ -192,14 +197,22 @@ body {
   min-height: 472px;
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 }
 .main__container_v {
   flex-direction: column;
+  min-width: 380px;
+}
+.main__container_h {
+  min-width: 380px;
 }
 .main__container__area_hours {
   width: 100%;
   flex-grow: 1;
   max-height: calc(25% - 10px);
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   display: flex;
   gap: 20px;
 }
@@ -228,53 +241,58 @@ body {
 }
 .main__container__area_bar_chart {
   width: 100%;
+  height: 100px;
   flex-grow: 3;
 }
-.main__container__area_doughnut_chart {
+.main__container__area_donut_chart {
   flex-grow: 1;
+  flex-wrap: nowrap;
   max-width: calc(50% - 10px);
+  width: 100%;
   padding: 30px 20px;
 }
-.main__container__area_doughnut_chart h2 {
+.main__container__area_donut_chart h2 {
   font-size: 1.2rem;
   font-weight: 600;
 }
-.main__container__area_doughnut_chart__box {
+.main__container__area_donut_chart__box {
   width: 100%;
-  padding-top: 100%;
   margin: 20px 0;
-  background-color: #0f71bc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
-.main__container__area_doughnut_chart ul li {
+.main__container__area_donut_chart ul li {
   display: inline-block;
   margin: 3px;
   color: #666;
 }
-.main__container__area_doughnut_chart ul li:nth-child(1) div {
+.main__container__area_donut_chart ul li:nth-child(1) div {
   background-color: #0445ec;
 }
-.main__container__area_doughnut_chart ul li:nth-child(2) div {
+.main__container__area_donut_chart ul li:nth-child(2) div {
   background-color: #0d72bd;
 }
-.main__container__area_doughnut_chart ul li:nth-child(3) div {
+.main__container__area_donut_chart ul li:nth-child(3) div {
   background-color: #1ebede;
 }
-.main__container__area_doughnut_chart ul li:nth-child(4) div {
+.main__container__area_donut_chart ul li:nth-child(4) div {
   background-color: #3ccefe;
 }
-.main__container__area_doughnut_chart ul li:nth-child(5) div {
+.main__container__area_donut_chart ul li:nth-child(5) div {
   background-color: #b29ef3;
 }
-.main__container__area_doughnut_chart ul li:nth-child(6) div {
+.main__container__area_donut_chart ul li:nth-child(6) div {
   background-color: #6d46ec;
 }
-.main__container__area_doughnut_chart ul li:nth-child(7) div {
+.main__container__area_donut_chart ul li:nth-child(7) div {
   background-color: #4a17ef;
 }
-.main__container__area_doughnut_chart ul li:nth-child(8) div {
+.main__container__area_donut_chart ul li:nth-child(8) div {
   background-color: #3005c0;
 }
-.main__container__area_doughnut_chart__list_circle {
+.main__container__area_donut_chart__list_circle {
   content: "";
   display: inline-block;
   width: 1rem;
@@ -284,5 +302,27 @@ body {
 .main__container__area_tile {
   border-radius: 10px;
   background-color: #fff;
+}
+
+.footer {
+  width: 100%;
+  height: 64px;
+}
+.footer__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer__container__date {
+  margin: 0 10px;
+}
+.footer__container__btn {
+  width: 30px;
+  height: 30px;
+}
+.footer__container__btn svg {
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */
