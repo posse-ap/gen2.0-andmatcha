@@ -1,5 +1,5 @@
 <?php
-require(dirname(__FILE__, 3) . '/app/check-id.php');
+require(dirname(__FILE__, 3) . '/app/quizy/check-id.php');
 
 require(dirname(__FILE__, 3) . '/app/db-connect.php');
 
