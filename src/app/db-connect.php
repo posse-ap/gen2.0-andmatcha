@@ -1,0 +1,8 @@
+<?php
+$dsn = 'mysql:host=db;dbname=webapp;charset=utf8';
+$user = 'root';
+$password = 'password';
+$db = new PDO($dsn, $user, $password, [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+]);
