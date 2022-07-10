@@ -1,0 +1,65 @@
+body {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 15px 24px;
+}
+.header__logo {
+  height: 28px;
+}
+.header__logo__img {
+  height: 100%;
+}
+.header__btns {
+  display: flex;
+  gap: 32px;
+}
+.header__btns__nav {
+  display: flex;
+  align-items: center;
+}
+.header__btns__nav__inner {
+  display: flex;
+  gap: 32px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #666666;
+}
+.header__btns__sns__inner {
+  display: flex;
+  gap: 16px;
+}
+.header__btns__sns__inner__logo {
+  border-radius: 50%;
+  width: 49px;
+  height: 49px;
+}
+.header__btns__sns__inner__logo::before {
+  content: "";
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #eeeeee;
+  border-radius: 50%;
+  z-index: -1;
+}
+.header__btns__sns__inner__logo--twitter {
+  position: relative;
+  background-color: #adadad;
+}
+.header__btns__sns__inner__logo--instagram {
+  position: relative;
+  background-color: #ffffff;
+}
+.header__btns__sns__inner__logo--instagram a {
+  display: block;
+  padding: 12px;
+}
