@@ -553,6 +553,9 @@ body {
 }
 .c-promotion__button {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 50%;
   max-width: 320px;
   height: 50px;
