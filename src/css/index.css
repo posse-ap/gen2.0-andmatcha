@@ -693,6 +693,41 @@ body {
   font-size: 10px;
 }
 
+.p-banner {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background-color: #5FDF5B;
+  width: 288px;
+  height: 80px;
+  border-radius: 16px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+.p-banner__logo {
+  width: 36px;
+  height: 36px;
+}
+.p-banner__logo-image {
+  width: 100%;
+}
+.p-banner__text {
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+.p-banner__link-icon {
+  width: 18px;
+  height: 18px;
+}
+.p-banner__link-icon-image {
+  width: 100%;
+  height: 100%;
+}
+
 /* ////////////////
 Foundation
 //////////////// */
