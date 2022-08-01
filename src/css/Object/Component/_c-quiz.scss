@@ -1,6 +1,9 @@
 .c-quiz {
     width: 70%;
     margin: 0 auto;
+    &--hide {
+        display: none;
+    }
     &__icon {
         display: flex;
         justify-content: center;
@@ -51,6 +54,20 @@
         align-items: center;
         justify-content: space-between;
         cursor: pointer;
+        &--clicked {
+            color: #0071bc;
+            border-color: #0071bc;
+            background-color: #eff2f5;
+        }
+        &--disabled {
+            pointer-events: none;
+            & img {
+                display: none;
+            }
+        }
+        &--hide {
+            display: none;
+        }
     }
     &__answer-area {
         width: 100%;
@@ -59,6 +76,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        &--hide {
+            display: none;
+        }
         &--correct {
             background-color: #fff2f5;
         }

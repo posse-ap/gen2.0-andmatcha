@@ -51,33 +51,7 @@
                     </div>
                 </section>
 
-                <section class="c-quiz-area" id="quizArea">
-                    <div id="quizTemplate" class="c-quiz">
-                        <div class="js-quiz-num c-quiz__icon c-quiz__icon--q">Q1</div>
-                        <h3 class="js-quiz-title c-quiz__title">日本のIT人材がーー</h3>
-                        <div class="c-quiz__image-box">
-                            <img src="../images/quiz/img-quiz01.png" alt="" class="js-image c-quiz__image">
-                        </div>
-                        <div class="c-quiz__icon c-quiz__icon--a">A</div>
-                        <ul class="js-choices c-quiz__choices">
-                            <li id="choiceTemplate" class="c-quiz__choice">約28万人<img
-                                    src="../images/icons/choice-icon.svg" alt=""></li>
-                            <li id="choiceTemplate" class="c-quiz__choice">約28万人<img
-                                    src="../images/icons/choice-icon.svg" alt=""></li>
-                            <li id="choiceTemplate" class="c-quiz__choice">約28万人<img
-                                    src="../images/icons/choice-icon.svg" alt=""></li>
-                        </ul>
-                        <div class="c-quiz__answer-area c-quiz__answer-area--correct">
-                            <h4 class="js-answer c-quiz__answer-title c-quiz__answer-title--correct">正解！</h4>
-                            <div class="c-quiz__answer-inner">
-                                <p class="c-quiz__answer-letter">A</p>
-                                <p class="js-ans c-quiz__answer">約28万人</p>
-                            </div>
-                        </div>
-                        <p class="js-src c-quiz__source"><img src="../images/icons/source-icon.svg" alt="">経済産業省</p>
-                    </div>
-
-                </section>
+                <section class="c-quiz-area" id="quizArea"></section>
 
                 <section class="p-promotion">
                     <div class="p-promotion__background">
@@ -130,23 +104,26 @@
     </div>
 
     <!-- start template -->
-    <div id="quizTemplate" class="c-quiz" style="display: none;">
-        <div class="js-quiz-num c-quiz__num"></div>
+    <li id="choiceTemplate" class="js-choice c-quiz__choice c-quiz__choice--hide"><span class="js-choice"></span><img src="../images/icons/choice-icon.svg" alt="" class="c-quiz__choice-icon"></li>
+
+    <div id="quizTemplate" class="c-quiz c-quiz--hide">
+        <div class="js-quiz-num c-quiz__icon c-quiz__icon--q"></div>
         <h3 class="js-quiz-title c-quiz__title"></h3>
-        <div>
+        <div class="c-quiz__image-box">
             <img src="" alt="" class="js-image c-quiz__image">
         </div>
-        <div>A</div>
-        <ul class="js-choices"></ul>
-        <div>
-            <h4 class="js-correct">正解！</h4>
-            <h4 class="js-incorrect">不正解...</h4>
-            <p class="js-ans"></p>
+        <div class="c-quiz__icon c-quiz__icon--a">A</div>
+        <ul class="js-choices c-quiz__choices"></ul>
+        <div class="js-answer-area c-quiz__answer-area c-quiz__answer-area--correct">
+            <h4 class="js-answer-title c-quiz__answer-title c-quiz__answer-title--correct"></h4>
+            <div class="c-quiz__answer-inner">
+                <p class="c-quiz__answer-letter">A</p>
+                <p class="js-answer c-quiz__answer"></p>
+            </div>
         </div>
-        <p class="js-src"></p>
+        <p class="js-src-area c-quiz__source"><img src="../images/icons/source-icon.svg" alt=""><span class="js-src">出典</span></p>
     </div>
 
-    <li id="choiceTemplate" style="display: none;"></li>
     <!-- end template -->
 
     <script src="../js/quiz-data.js"></script>
