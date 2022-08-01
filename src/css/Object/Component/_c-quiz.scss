@@ -1,0 +1,111 @@
+.c-quiz {
+    width: 70%;
+    margin: 0 auto;
+    &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 36px;
+        line-height: 54px;
+        color: #fff;
+        font-weight: 700;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        &--q {
+            background-color: #0071bc;
+        }
+        &--a {
+            background-color: #e34e70;
+        }
+    }
+    &__title {
+        margin: 24px 0;
+        font-size: 36px;
+        line-height: 54px;
+        font-weight: 600;
+    }
+    &__image-box {
+        width: 90%;
+        margin: 48px auto;
+    }
+    &__image {
+        width: 100%;
+        object-fit: contain;
+    }
+    &__choices {
+        margin: 24px 0;
+        display: flex;
+        gap: 24px;
+    }
+    &__choice {
+        border: 5px solid #eee;
+        border-radius: 8px;
+        padding: 24px;
+        font-size: 18px;
+        flex-grow: 1;
+        font-weight: 700;
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+    &__answer-area {
+        width: 100%;
+        padding: 24px 40px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &--correct {
+            background-color: #fff2f5;
+        }
+        &--incorrect {
+            background-color: #eff2f5;
+        }
+    }
+    &__answer-title {
+        font-size: 24px;
+        font-weight: 700;
+        text-align: left;
+        width: 100%;
+        &--correct {
+            color: #e34e70;
+        }
+        &--incorrect {
+            color: #0071bc;
+        }
+    }
+    &__answer-inner {
+        display: flex;
+        width: 100%;
+        justify-content: left;
+        align-items: center;
+        margin-top: 24px;
+        gap: 16px;
+    }
+    &__answer-letter {
+        font-size: 24px;
+        line-height: 42px;
+    }
+    &__answer {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 32px;
+    }
+    &__source {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 16px;
+        padding: 32px;
+        background-color: #f6f6f6;
+        border-radius: 8px;
+        margin-top: 16px;
+        font-size: 18px;
+        line-height: 32px;
+        font-weight: 600;
+    }
+}
