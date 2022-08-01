@@ -577,30 +577,6 @@ body {
   width: 49px;
   height: 49px;
 }
-.p-sns-icons__icon::before {
-  content: "";
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #eeeeee;
-  border-radius: 50%;
-  z-index: -1;
-}
-.p-sns-icons__icon--twitter {
-  position: relative;
-  background-color: #adadad;
-}
-.p-sns-icons__icon--instagram {
-  position: relative;
-  background-color: #ffffff;
-}
-.p-sns-icons__icon--instagram a {
-  display: block;
-  padding: 12px;
-}
 
 .p-header {
   display: flex;
