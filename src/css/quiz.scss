@@ -17,14 +17,14 @@ Layout
 Object
 //////////////// */
 // Component
-@use "./Object/Component/c-hero";
-@use "./Object/Component/c-about";
+@use "./Object/Component/c-quiz-top";
+@use "./Object/Component/c-quiz-area";
+@use "./Object/Component/c-quiz";
 
 // Project
 @use "./Object/Project/p-sns-icons";
 @use "./Object/Project/p-header";
 @use "./Object/Project/p-promotion";
 @use "./Object/Project/p-footer";
-@use "./Object/Project/p-banner";
 
 // Utility

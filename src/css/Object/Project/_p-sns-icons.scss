@@ -1,0 +1,9 @@
+.p-sns-icons {
+    display: flex;
+    gap: 16px;
+    &__icon {
+        border-radius: 50%;
+        width: 49px;
+        height: 49px;
+    }
+}
