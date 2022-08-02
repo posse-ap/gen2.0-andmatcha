@@ -1,0 +1,38 @@
+.p-footer {
+    &__main {
+        width: 100%;
+        margin-top: 80px;
+        padding: 56px 0;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__logo {
+        margin-bottom: 24px;
+    }
+    &__official {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 32px;
+    }
+    &__official-link {
+        color: #666;
+    }
+    &__link-icon {
+        margin-left: 4px;
+    }
+    &__credit {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 36px 0;
+    }
+    &__credit-text {
+        color: #666;
+        font-size: 10px;
+    }
+}

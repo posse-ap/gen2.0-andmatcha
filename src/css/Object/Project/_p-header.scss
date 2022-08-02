@@ -24,37 +24,4 @@
         font-weight: 700;
         color: #666666;
     }
-    &__sns-list {
-        display: flex;
-        gap: 16px;
-    }
-    &__sns-logo {
-        border-radius: 50%;
-        width: 49px;
-        height: 49px;
-        &::before {
-            content: "";
-            width: 50px;
-            height: 50px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #eeeeee;
-            border-radius: 50%;
-            z-index: -1;
-        }
-        &--twitter {
-            position: relative;
-            background-color: #adadad;
-        }
-        &--instagram {
-            position: relative;
-            background-color: #ffffff;
-            & a {
-                display: block;
-                padding: 12px;
-            }
-        }
-    }
 }

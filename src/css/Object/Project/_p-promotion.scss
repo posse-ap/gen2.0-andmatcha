@@ -1,4 +1,4 @@
-.c-promotion {
+.p-promotion {
     position: relative;
     margin: 140px auto 0;
     width: 70vw;
@@ -58,6 +58,9 @@
     }
     &__button {
         position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 50%;
         max-width: 320px;
         height: 50px;

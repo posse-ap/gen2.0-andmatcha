@@ -6,12 +6,127 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ITクイズ</title>
-    <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/quiz.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Plus+Jakarta+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
+    <div class="l-wrapper">
+        <header class="l-header p-header">
+            <div class="p-header__logo-box">
+                <img src="../images/logos/posse-logo.svg" alt="POSSE" class="p-header__logo-img">
+            </div>
+            <div class="p-header__buttons">
+                <nav class="p-header__nav">
+                    <ul class="p-header__nav-list">
+                        <li><a href="./index.html">POSSEとは</a></li>
+                        <li><a href="./quiz.html">クイズ</a></li>
+                    </ul>
+                </nav>
+                <ul class="p-sns-icons">
+                    <li class="p-sns-icons__icon">
+                        <a href="https://twitter.com/posse_program">
+                            <img src="../images/logos/twitter-logo.svg"></a>
+                    </li>
+                    <li class="p-sns-icons__icon">
+                        <a href="https://www.instagram.com/posse_programming/">
+                            <img src="../images/logos/instagram-logo.svg">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </header>
 
+        <div class="l-container">
+            <main class="l-main">
+                <section class="c-quiz-top">
+                    <div class="c-quiz-top__image-box">
+                        <img src="../images/quiz/bg-hero.jpeg" alt="" class="c-quiz-top__image">
+                    </div>
+                    <div class="c-quiz-top__title-box">
+                        <p class="c-quiz-top__small-title">POSSE課題</p>
+                        <h1 class="c-quiz-top__title">ITクイズ</h1>
+                    </div>
+                </section>
+
+                <section class="c-quiz-area" id="quizArea"></section>
+
+                <section class="p-promotion">
+                    <div class="p-promotion__background">
+                        <img src="../images/index/promotion-bg.jpeg" alt="" class="p-promotion__image">
+                    </div>
+                    <div class="p-promotion__contents">
+                        <h2 class="p-promotion__title">
+                            <img src="../images/logos/line-logo.svg" alt="" class="p-promotion__line-icon">
+                            POSSE公式LINE
+                        </h2>
+                        <p class="p-promotion__text">
+                            公式LINEにてご質問を随時受け付けております。
+                            詳細やPOSSE最新情報につきましては、公式LINEにてお知らせ致しますので
+                            下記ボタンより友達追加をお願いします！
+                        </p>
+                        <a href="https://line.me/R/ti/p/@651htnqp?from=page" class="p-promotion__button">
+                            LINE追加
+                            <img src="../images/icons/link-icon-gray.svg" alt="" class="p-promotion__link-icon">
+                        </a>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="l-footer">
+                <div class="p-footer__main">
+                    <div class="p-footer__logo">
+                        <img src="../images/logos/posse-logo.svg" alt="" class="p-footer__logo-image">
+                    </div>
+                    <p class="p-footer__official">
+                        <a href="https://posse-ap.com/" class="p-footer__official-link">POSSE公式サイト</a>
+                        <img src="../images/icons/link-icon-gray.svg" alt="" class="p-footer__link-icon">
+                    </p>
+                    <ul class="p-sns-icons">
+                        <li class="p-sns-icons__icon">
+                            <a href="https://twitter.com/posse_program">
+                                <img src="../images/logos/twitter-logo.svg"></a>
+                        </li>
+                        <li class="p-sns-icons__icon">
+                            <a href="https://www.instagram.com/posse_programming/">
+                                <img src="../images/logos/instagram-logo.svg">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="p-footer__credit">
+                    <p class="p-footer__credit-text">©︎2022 POSSE</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- start template -->
+    <li id="choiceTemplate" class="js-choice c-quiz__choice c-quiz__choice--hide"><span class="js-choice"></span><img src="../images/icons/choice-icon.svg" alt="" class="c-quiz__choice-icon"></li>
+
+    <div id="quizTemplate" class="c-quiz c-quiz--hide">
+        <div class="js-quiz-num c-quiz__icon c-quiz__icon--q"></div>
+        <h3 class="js-quiz-title c-quiz__title"></h3>
+        <div class="c-quiz__image-box">
+            <img src="" alt="" class="js-image c-quiz__image">
+        </div>
+        <div class="c-quiz__icon c-quiz__icon--a">A</div>
+        <ul class="js-choices c-quiz__choices"></ul>
+        <div class="js-answer-area c-quiz__answer-area c-quiz__answer-area--correct">
+            <h4 class="js-answer-title c-quiz__answer-title c-quiz__answer-title--correct"></h4>
+            <div class="c-quiz__answer-inner">
+                <p class="c-quiz__answer-letter">A</p>
+                <p class="js-answer c-quiz__answer"></p>
+            </div>
+        </div>
+        <p class="js-src-area c-quiz__source"><img src="../images/icons/source-icon.svg" alt=""><span class="js-src">出典</span></p>
+    </div>
+
+    <!-- end template -->
+
+    <script src="../js/quiz-data.js"></script>
     <script src="../js/quiz.js"></script>
 </body>
 
