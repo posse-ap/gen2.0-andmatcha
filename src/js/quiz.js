@@ -115,13 +115,13 @@ const generateShuffledArray = (originalArray) => {
  * 問題の順番と選択肢の順番をシャッフルしたクイズデータ
  * @type {Quiz[]}
  */
-const shuffledQuizzes = generateShuffledArray(quizzes).map((quiz, index) => {
-    quiz.quizNumber = index + 1;
-    quiz.choices = generateShuffledArray(quiz.choices);
-    return quiz;
+const shuffledQuizzes = generateShuffledArray(LIST_QUIZ_DATA).map((quizData, index) => {
+    quizData.quizNumber = index + 1;
+    quizData.choices = generateShuffledArray(quizData.choices);
+    return quizData;
 });
 
 // quizzes配列の中身からクイズを生成して表示
-shuffledQuizzes.forEach((quiz) => {
-    document.getElementById('quizArea').insertAdjacentElement('beforeend', createQuiz(quiz));
+shuffledQuizzes.forEach((quizData) => {
+    document.getElementById('quizArea').insertAdjacentElement('beforeend', createQuiz(quizData));
 });

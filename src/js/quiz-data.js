@@ -4,9 +4,9 @@
  * @typedef{{ num: number, title: string, img: string, choices: {num: number, value: string}[] ans: number, src: string }} Quiz
  * @type {Quiz[]} クイズデータを格納します
  */
-const quizzes = [];
+const LIST_QUIZ_DATA = [];
 
-quizzes.push(
+LIST_QUIZ_DATA.push(
     {
         quizNumber: 1,
         sentence: '日本のIT人材が2030年には最大どれくらい不足すると言われているでしょうか？',
