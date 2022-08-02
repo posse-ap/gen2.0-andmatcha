@@ -32,11 +32,11 @@ const clickFn = (quizNumber, choiceNumber, answerChoiceNumber) => {
 
 /**
  * クイズデータからクイズのHTMLを生成します
- * @typedef{{ num: number, title: string, img: string, choices: {num: number, value: string}[] ans: number, src: string }} Quiz
+ * @typedef{{ quizNumber: number, sentence: string, imageFileName: string, choices: {choiceNumber: number, choiceContent: string}[] correctChoiceNumber: number, reference: string }} Quiz
  * @param {Quiz} param0 quizzes: Quiz[]の要素: Quizを受け取ります
  * @returns {Node} クイズ1問分のNodeを返します
  */
-const createQuiz = ({ num, title, img, choices, ans, src }) => {
+const createQuiz = ({ quizNumber, sentence, imageFileName, choices, correctChoiceNumber, reference }) => {
     // HTMLファイルから問題のテンプレートを取得しクローンを作成
     const quizEl = document.getElementById('quizTemplate').cloneNode(true);
     // idの重複を避けるためにid属性を削除
@@ -44,14 +44,14 @@ const createQuiz = ({ num, title, img, choices, ans, src }) => {
     // 非表示用classNameを削除
     quizEl.classList.remove('c-quiz--hide');
     // 問題番号をセット
-    quizEl.querySelector('.js-quiz-num').innerText = `Q${num}`;
+    quizEl.querySelector('.js-quiz-num').innerText = `Q${quizNumber}`;
     // 問題文をセット
-    quizEl.querySelector('.js-quiz-title').innerText = title;
+    quizEl.querySelector('.js-quiz-title').innerText = sentence;
     // 画像をセット
-    quizEl.querySelector('.js-image').src = `../images/quiz/${img}`;
+    quizEl.querySelector('.js-image').src = `../images/quiz/${imageFileName}`;
     // 出典をセット
-    if (src !== '') {
-        quizEl.querySelector('.js-src').innerText = src;
+    if (reference !== '') {
+        quizEl.querySelector('.js-src').innerText = reference;
     } else {
         // 出典がない場合は、出典を表示するエリアごと削除
         quizEl.querySelector('.js-src-area').style.display = 'none';
@@ -60,35 +60,35 @@ const createQuiz = ({ num, title, img, choices, ans, src }) => {
     // 選択肢を入れるul要素を取得
     const choicesEl = quizEl.querySelector('.js-choices');
     // idの重複を避けるためにid属性を削除
-    choicesEl.id = `choices${num}`;
+    choicesEl.id = `choices${quizNumber}`;
     // 選択肢部分を生成
     choices.forEach((choice) => {
         // HTMLファイルから選択肢のテンプレートを取得しクローンを作成
         const choiceEl = document.getElementById('choiceTemplate').cloneNode(true);
         // idを更新
-        choiceEl.id = `choice${num}_${choice.num}`;
+        choiceEl.id = `choice${quizNumber}_${choice.choiceNumber}`;
         // 非表示用classNameを削除
         choiceEl.classList.remove('c-quiz__choice--hide');
         // 選択肢にonclick属性をセット
-        choiceEl.setAttribute('onclick', `clickFn(${num}, ${choice.num}, ${ans})`);
+        choiceEl.setAttribute('onclick', `clickFn(${quizNumber}, ${choice.choiceNumber}, ${correctChoiceNumber})`);
         // 選択肢の文面をセット
-        choiceEl.querySelector('.js-choice').innerText = choice.value;
+        choiceEl.querySelector('.js-choice').innerText = choice.choiceContent;
         // 選択肢をul要素に挿入
         choicesEl.insertAdjacentElement('beforeend', choiceEl);
     });
 
     // 答え表示エリアのidをセット
-    quizEl.querySelector('.js-answer-area').id = `answerArea${num}`;
+    quizEl.querySelector('.js-answer-area').id = `answerArea${quizNumber}`;
     // 答え表示エリアの非表示用classNameを削除
     quizEl.querySelector('.js-answer-area').classList.add('c-quiz__answer-area--hide');
     // 答えタイトル(「正解！」or「不正解...」を表示する部分)のidをセット
-    quizEl.querySelector('.js-answer-title').id = `answerTitle${num}`;
+    quizEl.querySelector('.js-answer-title').id = `answerTitle${quizNumber}`;
     /**
      * @type {{ num: number, value: string }} 答えの選択肢の連想配列を取得
      *  */
-    const answerChoice = choices.find((choice) => choice.num === ans);
+    const answerChoice = choices.find((choice) => choice.choiceNumber === correctChoiceNumber);
     // 答えの選択肢を表示エリアにセット
-    quizEl.querySelector('.js-answer').innerText = answerChoice.value;
+    quizEl.querySelector('.js-answer').innerText = answerChoice.choiceContent;
 
     return quizEl;
 }
@@ -116,7 +116,7 @@ const generateShuffledArray = (originalArray) => {
  * @type {Quiz[]}
  */
 const shuffledQuizzes = generateShuffledArray(quizzes).map((quiz, index) => {
-    quiz.num = index + 1;
+    quiz.quizNumber = index + 1;
     quiz.choices = generateShuffledArray(quiz.choices);
     return quiz;
 });
