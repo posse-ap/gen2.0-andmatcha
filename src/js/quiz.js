@@ -95,8 +95,8 @@ const createQuiz = ({ quizNumber, sentence, imageFileName, choices, correctChoic
 
 /**
  * シャッフルされた配列を生成
- * @param {array} originalArray 元となる配列
- * @returns {array} シャッフルされた配列
+ * @param {any[]} originalArray 元となる配列
+ * @returns {any[]} シャッフルされた配列
  */
 const generateShuffledArray = (originalArray) => {
     const array = [...originalArray];
