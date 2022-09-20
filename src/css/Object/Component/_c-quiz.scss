@@ -123,7 +123,6 @@
         padding: 32px;
         background-color: #f6f6f6;
         border-radius: 8px;
-        margin-top: 16px;
         font-size: 18px;
         line-height: 32px;
         font-weight: 600;
@@ -161,6 +160,12 @@
         &__answer-letter {
             font-size: 18px;
             line-height: 27px;
+        }
+        &__source {
+            gap: 8px;
+            padding: 16px;
+            font-size: 14px;
+            line-height: 21px;
         }
     }
 }
