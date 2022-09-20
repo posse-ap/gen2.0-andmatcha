@@ -632,6 +632,19 @@ body {
     padding: 16px;
     font-size: 16px;
   }
+  .c-quiz__answer-area {
+    padding: 16px 20px;
+  }
+  .c-quiz__answer-title {
+    font-size: 18px;
+  }
+  .c-quiz__answer-inner {
+    margin-top: 8px;
+  }
+  .c-quiz__answer-letter {
+    font-size: 18px;
+    line-height: 27px;
+  }
 }
 
 .p-sns-icons {

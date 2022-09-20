@@ -149,5 +149,18 @@
             padding: 16px;
             font-size: 16px;
         }
+        &__answer-area {
+            padding: 16px 20px;
+        }
+        &__answer-title {
+            font-size: 18px;
+        }
+        &__answer-inner {
+            margin-top: 8px;
+        }
+        &__answer-letter {
+            font-size: 18px;
+            line-height: 27px;
+        }
     }
 }
