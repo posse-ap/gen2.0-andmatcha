@@ -457,6 +457,7 @@ body {
 @media (max-width: 520px) {
   .c-quiz-top {
     height: 120px;
+    margin-bottom: 60px;
   }
   .c-quiz-top__title-box {
     gap: 6px;
