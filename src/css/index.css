@@ -576,6 +576,11 @@ body {
   font-weight: 700;
   color: #666666;
 }
+@media (max-width: 520px) {
+  .p-header__buttons {
+    display: none;
+  }
+}
 
 .p-promotion {
   position: relative;

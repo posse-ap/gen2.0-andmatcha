@@ -24,4 +24,10 @@
         font-weight: 700;
         color: #666666;
     }
+
+    @media (max-width: 520px) {
+        &__buttons {
+            display: none;
+        }
+    }
 }
