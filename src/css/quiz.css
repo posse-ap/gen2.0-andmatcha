@@ -618,6 +618,11 @@ body {
     line-height: 36px;
     min-width: 48px;
   }
+  .c-quiz__title {
+    margin: 12px 0;
+    font-size: 24px;
+    line-height: 36px;
+  }
 }
 
 .p-sns-icons {
