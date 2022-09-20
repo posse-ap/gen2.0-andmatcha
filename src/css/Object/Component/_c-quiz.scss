@@ -141,5 +141,13 @@
             font-size: 18px;
             line-height: 27px;
         }
+        &__choices {
+            flex-direction: column;
+            gap: 12px;
+        }
+        &__choice {
+            padding: 16px;
+            font-size: 16px;
+        }
     }
 }
