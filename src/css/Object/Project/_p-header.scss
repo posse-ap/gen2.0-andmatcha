@@ -1,33 +1,33 @@
 .p-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 24px;
+  &__logo-box {
+    height: 28px;
+  }
+  &__logo-img {
+    height: 100%;
+  }
+  &__buttons {
     display: flex;
-    justify-content: space-between;
+    gap: 32px;
+  }
+  &__nav {
+    display: flex;
     align-items: center;
-    padding: 15px 24px;
-    &__logo-box {
-        height: 28px;
-    }
-    &__logo-img {
-        height: 100%;
-    }
-    &__buttons {
-        display: flex;
-        gap: 32px;
-    }
-    &__nav {
-        display: flex;
-        align-items: center;
-    }
-    &__nav-list {
-        display: flex;
-        gap: 32px;
-        font-size: 14px;
-        font-weight: 700;
-        color: #666666;
-    }
+  }
+  &__nav-list {
+    display: flex;
+    gap: 32px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #666666;
+  }
 
-    @media (max-width: 520px) {
-        &__buttons {
-            display: none;
-        }
+  @media (max-width: 960px) {
+    &__buttons {
+      display: none;
     }
+  }
 }
