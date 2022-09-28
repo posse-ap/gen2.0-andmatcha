@@ -93,7 +93,35 @@ const createQuiz = ({ num, title, img, choices, ans, src }) => {
     return quizEl;
 }
 
+/**
+ * シャッフルされた配列を生成
+ * @param {array} originalArray 元となる配列
+ * @returns {array} シャッフルされた配列
+ */
+const generateShuffledArray = (originalArray) => {
+    const array = [...originalArray];
+    const newArray = [];
+    while (array.length > 0) {
+        const n = array.length;
+        const k = Math.floor(Math.random() * n);
+
+        newArray.push(array[k]);
+        array.splice(k, 1);
+    }
+    return newArray;
+}
+
+/**
+ * 問題の順番と選択肢の順番をシャッフルしたクイズデータ
+ * @type {Quiz[]}
+ */
+const shuffledQuizzes = generateShuffledArray(quizzes).map((quiz, index) => {
+    quiz.num = index + 1;
+    quiz.choices = generateShuffledArray(quiz.choices);
+    return quiz;
+});
+
 // quizzes配列の中身からクイズを生成して表示
-quizzes.forEach((quiz) => {
+shuffledQuizzes.forEach((quiz) => {
     document.getElementById('quizArea').insertAdjacentElement('beforeend', createQuiz(quiz));
 });
