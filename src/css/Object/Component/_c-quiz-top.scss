@@ -1,36 +1,40 @@
 .c-quiz-top {
-    width: 100vw;
-    height: 320px;
-    position: relative;
+  width: 100vw;
+  height: 320px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 120px;
+  background-image: url("../images/quiz/bg-hero.jpeg");
+  background-size: cover;
+  &__title-box {
     display: flex;
-    align-items: center;
-    margin-bottom: 120px;
-    &__image-box {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        overflow: hidden;
-    }
-    &__image {
-        width: 100%;
-        object-fit: cover;
-    }
+    flex-direction: column;
+    gap: 12px;
+    margin-left: 20%;
+  }
+  &__small-title {
+    color: #fff;
+    font-size: 18px;
+  }
+  &__title {
+    color: #fff;
+    font-size: 60px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 960px) {
+    height: 120px;
+    margin-bottom: 60px;
     &__title-box {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        margin-left: 20%;
+      gap: 6px;
+      margin-left: 10%;
     }
     &__small-title {
-        color: #fff;
-        font-size: 18px;
+      font-size: 12px;
     }
     &__title {
-        color: #fff;
-        font-size: 60px;
-        font-weight: 700;
+      font-size: 32px;
     }
+  }
 }

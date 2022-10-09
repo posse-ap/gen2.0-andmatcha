@@ -37,17 +37,34 @@
                     </li>
                 </ul>
             </div>
+            <button class="p-header__hamburger" id="hamburgerButton">
+                <span class="p-header__hamburger-line js-button-line"></span>
+                <span class="p-header__hamburger-line js-button-line"></span>
+            </button>
         </header>
 
         <div class="l-container">
             <main class="l-main">
-                <section class="c-hero">
-                    <div class="c-hero__img-box">
-                        <img class="c-hero__img" src="../images/index/img-hero.jpeg" alt="">
+                <section class="p-menu" id="hamburgerMenu">
+                    <nav class="p-menu__main">
+                        <ul class="p-menu__list">
+                            <li class="p-menu__item">POSSEとは</li>
+                            <li class="p-menu__item">クイズ</li>
+                        </ul>
+                    </nav>
+                    <div class="p-menu__promotion">
+                        <!-- LINE, 公式サイト, SNSアイコン -->
                     </div>
-                    <div class="c-hero__title-box">
-                        <h2 class="c-hero__title-small">学生プログラミングコミュニティ POSSE（ポッセ）</h2>
-                        <h1 class="c-hero__title">自分史上最高を仲間と。</h1>
+                </section>
+                <section class="c-hero">
+                    <div class="c-hero__main">
+                        <div class="c-hero__img-box">
+                            <img class="c-hero__img" src="../images/index/img-hero.jpeg" alt="">
+                        </div>
+                        <div class="c-hero__title-box">
+                            <h2 class="c-hero__title-small">学生プログラミングコミュニティ POSSE（ポッセ）</h2>
+                            <h1 class="c-hero__title">自分史上最高を仲間と。</h1>
+                        </div>
                     </div>
                     <div class="c-hero__scroll">
                         <p class="c-hero__scroll-text">Scroll Down</p>
@@ -131,6 +148,8 @@
             <img src="../images/icons/link-icon-white.svg" alt="" class="p-banner__link-icon-image">
         </div>
     </a>
+
+    <script src="../js/menu.js"></script>
 </body>
 
 </html>

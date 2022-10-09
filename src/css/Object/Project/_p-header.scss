@@ -1,27 +1,65 @@
 .p-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 24px;
+  &__logo-box {
+    height: 28px;
+  }
+  &__logo-img {
+    height: 100%;
+  }
+  &__buttons {
     display: flex;
-    justify-content: space-between;
+    gap: 32px;
+  }
+  &__nav {
+    display: flex;
     align-items: center;
-    padding: 15px 24px;
-    &__logo-box {
-        height: 28px;
-    }
-    &__logo-img {
-        height: 100%;
-    }
+  }
+  &__nav-list {
+    display: flex;
+    gap: 32px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #666666;
+  }
+  &__hamburger {
+    display: none;
+  }
+
+  @media (max-width: 960px) {
     &__buttons {
-        display: flex;
-        gap: 32px;
+      display: none;
     }
-    &__nav {
-        display: flex;
-        align-items: center;
+    &__hamburger {
+      position: relative;
+      display: flex;
+      width: 34px;
+      height: 34px;
     }
-    &__nav-list {
-        display: flex;
-        gap: 32px;
-        font-size: 14px;
-        font-weight: 700;
-        color: #666666;
+    &__hamburger-line {
+      position: absolute;
+      border: 1px solid #333333;
+      width: 100%;
+      left: calc(50% - 17px);
+      transition: 0.3s;
+      &:nth-child(1) {
+        top: calc(50% - 7px);
+      }
+      &:nth-child(2) {
+        top: calc(50% + 7px);
+      }
     }
+    &__hamburger-line--open {
+      &:nth-child(1) {
+        top: 50%;
+        transform: rotateZ(45deg);
+      }
+      &:nth-child(2) {
+        top: 50%;
+        transform: rotateZ(-45deg);
+      }
+    }
+  }
 }

@@ -1,46 +1,50 @@
-$body-height: 680px;
-$img-width: 976px;
 $img-radius: 80px;
-$title-box-width: 500px;
-$title-box-height: 281px;
-$title-background-color: #EFF2F5;
 $title-radius: 24px;
-$title-font-size: 60px;
+$title-background-color: #EFF2F5;
 $text-blue: #0071BC;
 $text-dark: #333333;
 $text-lightgray: #ADADAD;
 
 .c-hero {
-    position: relative;
     width: 100%;
-    height: $body-height;
+    height: 50vw;
     margin-bottom: 96px;
+    display: flex;
+    justify-content: right;
+    &__main {
+        position: relative;
+        width: 65vw;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
     &__img-box {
         position: absolute;
         top: 0;
         right: 0;
-        width: $img-width;
+        width: 100%;
         height: 100%;
         overflow: hidden;
         border-radius: $img-radius 0 0 $img-radius;
     }
     &__img {
+        width: 100%;
         height: 100%;
         object-fit: cover;
     }
     &__title-box {
-        position: absolute;
-        top: 198px;
-        left: 80px;
-        width: $title-box-width;
-        height: $title-box-height;
+        width: calc(320px + 10vw);
+        height: 320px;
         background-color: $title-background-color;
         border-radius: $title-radius;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
         padding: 40px 62px;
-        gap: 12px;
+        gap: 16px;
+        z-index: 1;
+        transform: translate(-75%, 0);
     }
     &__title-small {
         color: $text-blue;
@@ -48,8 +52,9 @@ $text-lightgray: #ADADAD;
     }
     &__title {
         color: $text-dark;
-        font-size: $title-font-size;
+        font-size: 60px;
         font-weight: 700;
+        letter-spacing: 2px;
     }
     &__scroll {
         color: $text-dark;
@@ -69,6 +74,34 @@ $text-lightgray: #ADADAD;
             left: -16px;
             background-color: $text-lightgray;
             border-radius: 50%;
+        }
+    }
+
+    @media(max-width: 960px) {
+        justify-content: center;
+        margin-bottom: 160px;
+        &__main {
+            width: 100%;
+            justify-content: center;
+        }
+        &__img-box {
+            border-radius: 0;
+        }
+        &__title-box {
+            transform: translate(0, calc(50px + 20vw));
+            width: 90%;
+            height: 110px;
+            padding: 20px;
+        }
+        &__title-small {
+            font-size: 12px;
+        }
+        &__title {
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+        &__scroll {
+            display: none;
         }
     }
 }
