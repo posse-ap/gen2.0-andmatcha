@@ -4,6 +4,9 @@
   height: 100vh;
   z-index: 100;
   background-color: #ffffff;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
   &__list {
     width: 100%;
     display: flex;
@@ -17,5 +20,9 @@
     line-height: 36px;
     font-weight: 700;
     letter-spacing: 2px;
+  }
+  &--open {
+    visibility: visible;
+    opacity: 1;
   }
 }

@@ -43,6 +43,7 @@
       border: 1px solid #333333;
       width: 100%;
       left: calc(50% - 17px);
+      transition: 0.3s;
       &:nth-child(1) {
         top: calc(50% - 7px);
       }
@@ -51,11 +52,12 @@
       }
     }
     &__hamburger-line--open {
-      top: 50%;
       &:nth-child(1) {
+        top: 50%;
         transform: rotateZ(45deg);
       }
       &:nth-child(2) {
+        top: 50%;
         transform: rotateZ(-45deg);
       }
     }
