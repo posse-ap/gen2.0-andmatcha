@@ -577,6 +577,17 @@ body {
   line-height: 24px;
   letter-spacing: 2px;
 }
+@media (max-width: 960px) {
+  .c-about__contents {
+    flex-direction: column;
+  }
+  .c-about__image-box {
+    width: 100%;
+  }
+  .c-about__paragraph {
+    width: 100%;
+  }
+}
 
 .p-sns-icons {
   display: flex;
