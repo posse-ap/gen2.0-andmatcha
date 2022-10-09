@@ -626,9 +626,39 @@ body {
   font-weight: 700;
   color: #666666;
 }
+.p-header__hamburger {
+  display: none;
+}
 @media (max-width: 960px) {
   .p-header__buttons {
     display: none;
+  }
+  .p-header__hamburger {
+    position: relative;
+    display: flex;
+    width: 34px;
+    height: 34px;
+  }
+  .p-header__hamburger-line {
+    position: absolute;
+    border: 1px solid #333333;
+    width: 100%;
+    left: calc(50% - 17px);
+  }
+  .p-header__hamburger-line:nth-child(1) {
+    top: calc(50% - 7px);
+  }
+  .p-header__hamburger-line:nth-child(2) {
+    top: calc(50% + 7px);
+  }
+  .p-header__hamburger-line--open {
+    top: 50%;
+  }
+  .p-header__hamburger-line--open:nth-child(1) {
+    transform: rotateZ(45deg);
+  }
+  .p-header__hamburger-line--open:nth-child(2) {
+    transform: rotateZ(-45deg);
   }
 }
 
