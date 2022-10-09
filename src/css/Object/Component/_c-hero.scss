@@ -44,7 +44,7 @@ $text-lightgray: #ADADAD;
         padding: 40px 62px;
         gap: 16px;
         z-index: 1;
-        transform: translateX(-75%);
+        transform: translate(-75%, 0);
     }
     &__title-small {
         color: $text-blue;
@@ -78,6 +78,30 @@ $text-lightgray: #ADADAD;
     }
 
     @media(max-width: 960px) {
-
+        justify-content: center;
+        margin-bottom: 160px;
+        &__main {
+            width: 100%;
+            justify-content: center;
+        }
+        &__img-box {
+            border-radius: 0;
+        }
+        &__title-box {
+            transform: translate(0, calc(50px + 20vw));
+            width: 90%;
+            height: 110px;
+            padding: 20px;
+        }
+        &__title-small {
+            font-size: 12px;
+        }
+        &__title {
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+        &__scroll {
+            display: none;
+        }
     }
 }

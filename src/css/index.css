@@ -470,7 +470,7 @@ body {
   padding: 40px 62px;
   gap: 16px;
   z-index: 1;
-  transform: translateX(-75%);
+  transform: translate(-75%, 0);
 }
 .c-hero__title-small {
   color: #0071BC;
@@ -502,6 +502,36 @@ body {
   background-color: #ADADAD;
   border-radius: 50%;
 }
+@media (max-width: 960px) {
+  .c-hero {
+    justify-content: center;
+    margin-bottom: 160px;
+  }
+  .c-hero__main {
+    width: 100%;
+    justify-content: center;
+  }
+  .c-hero__img-box {
+    border-radius: 0;
+  }
+  .c-hero__title-box {
+    transform: translate(0, calc(50px + 20vw));
+    width: 90%;
+    height: 110px;
+    padding: 20px;
+  }
+  .c-hero__title-small {
+    font-size: 12px;
+  }
+  .c-hero__title {
+    font-size: 24px;
+    letter-spacing: 1px;
+  }
+  .c-hero__scroll {
+    display: none;
+  }
+}
+
 .c-about {
   width: 70vw;
   max-width: 984px;
